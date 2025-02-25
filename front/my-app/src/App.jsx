@@ -1,5 +1,5 @@
 import RegisterandLogin from "./pages/RegisterandLogin";
-import './App.css';
+
 
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
    
     <div>
       <RegisterandLogin/>
+      
     </div>
    
   );

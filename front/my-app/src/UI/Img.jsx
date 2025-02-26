@@ -1,9 +1,8 @@
 import styled from "styled-components"
 
 const Img =styled.img`
-  width:35%;
-  height:35%;
-  text-align:"center";
+  width:500px;
+  height:500px;
   padding-bottom:50px;
   padding-top:20px;
 `;

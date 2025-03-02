@@ -1,17 +1,11 @@
-import RegisterandLogin from "./pages/RegisterandLogin";
-
-
-
-
+//import Firstloginpage from "./pages/Firstloginpage.jsx";
+//import RegisterandLogin from "./pages/RegisterandLogin";
+import Secondlogin from "./pages/Secondlogin.jsx";
 function App() {
-  return (
-   
+  return(
     <div>
-      <RegisterandLogin/>
-      
+      <Secondlogin/>
     </div>
-   
   );
 }
-
 export default App;

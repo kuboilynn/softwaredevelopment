@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import StudentRegister from './pages/StudentRegister';
 
 
 const root =ReactDOM.createRoot(document.getElementById('root'));root.render(
@@ -14,6 +15,7 @@ const root =ReactDOM.createRoot(document.getElementById('root'));root.render(
       <Route path="/" element={<App/>}/>
       <Route path="/Register" element={<Register/>}/>
       <Route path="/Login" element={<Login/>}/>
+      <Route path="/StudentRegister" element={<StudentRegister/>}/>
     </Routes>
     </BrowserRouter>
     

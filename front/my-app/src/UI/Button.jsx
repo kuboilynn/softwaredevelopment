@@ -14,8 +14,5 @@ const Button=styled.button`
     background-color:rgb(5, 31, 65);
     
   }
-  
-
-
 `
 export default Button

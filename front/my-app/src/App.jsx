@@ -1,17 +1,11 @@
 import RegisterandLogin from "./pages/RegisterandLogin";
-
-
-
-
 function App() {
-  return (
-   
+  return( 
     <div>
       <RegisterandLogin/>
-      
     </div>
-   
   );
 }
-
 export default App;
+
+

@@ -7,10 +7,13 @@ import Button from "../UI/Button"
 
 function Login() {
 
-  const[email,setemail]=useState();
+  const[regno,setregno]=useState();
 
-  function enteremail(event){
-    setemail(event.target.value);
+  function enterregno(event){
+    if (setregno==""){
+      return "reg no required"
+    }
+    setregno(event.target.value);
 
 
   }
@@ -18,8 +21,8 @@ function Login() {
     <div className="Login">
       <h3> Login</h3>
       <Img src={makerere} alt="Makerere Logo"/>
-      <Input type="text" value={email} onchange={enteremail}></Input><br/>
-      <Input type="text" value={email} onchange={enteremail}></Input><br/>
+      <Input type="text" value={regno} onchange={enterregno}placeholder="Student no/Reg"></Input><br/>
+      <Input type="text" value={regno} onchange={enterregno}placeholder="Name"></Input><br/>
       <Button>Login</Button>
       <p>Don't have an account? Signup</p>
       

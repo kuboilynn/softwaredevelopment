@@ -12,11 +12,12 @@ function StudentRegister(){
   return(
     <div>
       <h3>Register: Student</h3>
-      <Input type="text" ></Input><br/>
-      <Input type="text" ></Input><br/>
-      <Input type="text" ></Input><br/>
-      <Input type="text" ></Input><br/>
-      <Input type="text" ></Input><br/>
+      <Input type="text" placeholder="Name"></Input><br/>
+      <Input type="text" placeholder="email"></Input><br/>
+      <Input type="text" placeholder="Registration Number"></Input><br/>
+      <Input type="text" placeholder="Student number" ></Input><br/>
+      <Input type="text" placeholder="password"></Input><br/>
+      <Input type="text" placeholder="confirm password"></Input><br/>
       <Button onClick={gotoStudentHome}>Signup</Button>
     </div>
   )

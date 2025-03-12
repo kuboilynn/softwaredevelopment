@@ -1,7 +1,8 @@
-import Button from "../UI/Button"
-import Input from "../UI/input";
+import Button from "../../UI/Button"
+import Input from "../../UI/input";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import '../styles/studentRegister.css';
 
 function StudentRegister(){
   const navigate=useNavigate()
@@ -15,7 +16,7 @@ function StudentRegister(){
   }
 
   function gotoStudentHome(){
-    navigate("./")
+    navigate("/StudentHome")
 
   }
   return(

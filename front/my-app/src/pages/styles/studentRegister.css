@@ -1,0 +1,17 @@
+.StudentRegister{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  margin-top: 5px;
+}
+div{
+  display:flex;
+  flex-shrink: 1;
+  flex-grow: 1;
+  display:block;
+  align-items: center;
+ 
+}

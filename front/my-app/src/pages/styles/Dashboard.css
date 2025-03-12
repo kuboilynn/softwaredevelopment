@@ -1,0 +1,73 @@
+.DashboardStudent body{
+  display: flex;
+  text-align: center;
+}
+.dashhead{
+  background-color: rgba(6, 68, 83, 0.699);
+  height: 60px;
+  font-size: 30px;
+  padding: 20px 0px 8px 30px;
+}
+
+.menu-bars{
+  background-color: rgb(50, 144, 151);
+  margin-left: 0cm;
+  font-size:30px;
+  width:250px;
+  height: 800px;
+  display:flex;
+  justify-content: center;
+
+
+}
+.active-dashboard{
+  background-color: rgb(50, 144, 151);
+  margin-left: 0cm;
+  font-size:30px;
+  width:250px;
+  height: 800px;
+  display:flex;
+  justify-content: center;
+  left:0;
+  transition: 650ms;
+
+}
+
+.closed-dashboard{
+  background-color: rgb(50, 144, 151);
+  margin-left: 0cm;
+  font-size:30px;
+  width:250px;
+  height: 800px;
+  display:flex;
+  justify-content: center;
+  
+  position: fixed;
+  left:-100%;
+  transition: 850ms;
+  
+
+
+}
+.items{
+  list-style: none;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  padding:8px 0px 8px 16px;
+  gap:50px;
+  border-radius: 5px;
+
+}
+.items a{
+  display: flex;
+  text-decoration: none;
+  color: #f8f6f8;
+  font-size: 30px;
+  padding: 10px;
+  width: 100%;
+
+}
+.items  :hover{
+  background-color: rgb(78, 27, 99);
+}

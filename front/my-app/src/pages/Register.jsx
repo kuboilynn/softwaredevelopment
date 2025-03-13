@@ -6,6 +6,9 @@ import './styles/Register.css';
 
  function Register(){
    const navigate=useNavigate()
+   function gotoDashboard(){
+    navigate("/LecturerDashboard");
+   }
    function gotoStudentRegister(){
     navigate("/StudentRegister")
   
@@ -19,7 +22,7 @@ import './styles/Register.css';
   
   <div className="Buttons">
     <Button  className="Student" onClick={gotoStudentRegister} >Student</Button>
-    <Button  className="Lecturer" >Lecturer</Button>
+    <Button  className="Lecturer" onClick={gotoDashboard}>Lecturer</Button>
     <Button  className="Register" >Registrar</Button>
   </div>
     <p>Already have an account?Login</p>

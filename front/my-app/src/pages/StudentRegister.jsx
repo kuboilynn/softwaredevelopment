@@ -10,7 +10,8 @@ function StudentRegister(){
 
   }
   return(
-    <div>
+    
+      <div>
       <h3>Register: Student</h3>
       <Input type="text" ></Input><br/>
       <Input type="text" ></Input><br/>
@@ -19,6 +20,7 @@ function StudentRegister(){
       <Input type="text" ></Input><br/>
       <Button onClick={gotoStudentHome}>Signup</Button>
     </div>
+ 
   )
 
 }

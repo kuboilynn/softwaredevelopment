@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import RegisterView, UserDetailView # type: ignore
+from issues.views import RegisterView, UserDetailView
 
 
 urlpatterns = [

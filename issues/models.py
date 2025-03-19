@@ -14,8 +14,15 @@ class Issue(models.Model):
     ISSUE_TYPES = [
         ('MISSING_MARKS', 'Missing Marks'),
         ('APPEAL', 'Appeal'),
-        ('CORRECTION', 'Correction'),
+        ('CORRECTION', 'Correction'),    
     ]
+
+    class Meta:
+        permissions = [
+            ("can_view_issues", "Can view issues"),
+            ("can_resolve_issues", "Can resolve issues"),
+            ("can_assign_issues", "Can assign issues"),
+        ]
 
     student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student_issues')
     lecturer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='lecturer_issues')

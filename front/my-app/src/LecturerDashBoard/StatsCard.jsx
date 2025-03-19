@@ -1,5 +1,5 @@
 import React from "react";
-import './StatsCard.css';
+import '../pages/styles/StatsCard.css';
 
 const StatsCard = ({title,count})=>{
     return(

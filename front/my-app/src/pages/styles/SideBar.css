@@ -1,0 +1,38 @@
+.SideBar{
+    width: 200px;
+    background-color: #2c3c50;
+    color: white;
+    height: 100vh;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.SideBar ul{
+    list-style: none;
+    padding: 0;
+}
+
+.SideBar li{
+    margin: 20px 0;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+.SideBar a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+}
+
+.SideBar a:hover{
+    background-color: #34495e;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

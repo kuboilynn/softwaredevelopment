@@ -7,6 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id','usernae','email','password']
         extra_kwargs = {'password': {'write only': True}}
+        fields = '__all___'
 
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
@@ -17,6 +18,7 @@ class IssueSerializer(serializers.ModelSerializer):
     class Meta:
         model = Issue
         fiels = ['id', 'student', 'lecturer', 'department', 'issue_type', 'description', 'status', 'created_at', 'updated_at']
+        exclude = ['student', 'lecturer', 'department']
 
 
 class DepartmentSerializer(serializers.ModelSerializer):

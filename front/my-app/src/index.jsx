@@ -18,7 +18,7 @@ const root =ReactDOM.createRoot(document.getElementById('root'));root.render(
       <Route path="/Register" element={<Register/>}/>
       <Route path="/Login" element={<Login/>}/>
       <Route path="/StudentRegister" element={<StudentRegister/>}/>
-      <Route path="/LecturerDashBoard" element={<Dashboard/>}/>
+      <Route path="/LecturerDashBoard/*" element={<Dashboard/>}/>
     </Routes>
     </BrowserRouter>
     

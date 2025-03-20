@@ -6,13 +6,14 @@ import './styles/Register.css';
 
  function Register(){
    const navigate=useNavigate()
+   
    function gotoDashboard(){
     navigate("/LecturerDashboard/Home");
    }
+
    function gotoStudentRegister(){
     navigate("/StudentRegister")
-  
-   }
+  }
   
   return(
   

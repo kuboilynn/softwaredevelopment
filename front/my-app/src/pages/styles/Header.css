@@ -8,9 +8,9 @@
     position: fixed;
     height: 80px;
     top: 0; 
-    left: 200px;
+    left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 10;
 }
 .header h1{
     margin: 0;
@@ -27,3 +27,6 @@
     border-radius: 5px;
     cursor: pointer;   
 }
+body {
+    margin-top: 80px; 
+  }

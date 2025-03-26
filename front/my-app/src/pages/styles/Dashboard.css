@@ -1,22 +1,31 @@
-.DashboardStudent body{
-  display: flex;
-  text-align: center;
+.body{
+  padding: 0;
+  margin: 0;
 }
 .dashhead{
-  background-color: rgba(6, 68, 83, 0.699);
-  height: 60px;
+  background-color: rgba(86, 75, 241, 0.699);
+  height: 50px;
   font-size: 30px;
-  padding: 20px 0px 8px 30px;
+  padding: 20px 8px 8px 30px;
+  left:0;
+  margin:0cm;
+  border: 0cm;
+  width: 100%;
+  left:0;
+  top:0;
+
 }
 
 .menu-bars{
-  background-color: rgb(50, 144, 151);
+  background-color: rgb(85, 126, 238);
   margin-left: 0cm;
   font-size:30px;
   width:250px;
   height: 800px;
   display:flex;
   justify-content: center;
+  position: absolute;
+  left:2;
 
 
 }
@@ -28,8 +37,10 @@
   height: 800px;
   display:flex;
   justify-content: center;
-  left:0;
+  position: absolute;
+  left:2;
   transition: 650ms;
+  transform: translateX(0);
 
 }
 
@@ -41,7 +52,7 @@
   height: 800px;
   display:flex;
   justify-content: center;
-  
+  transform: translateX(-100%);
   position: fixed;
   left:-100%;
   transition: 850ms;

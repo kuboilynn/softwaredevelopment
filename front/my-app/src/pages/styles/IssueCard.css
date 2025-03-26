@@ -1,0 +1,61 @@
+.issue-card-container{
+    width: calc(100% - 200px);
+    margin-left: 200px;
+    overflow: auto;
+}
+.Issue-card-table{
+    width: 100%;
+    margin: 20px 0;
+    background-color: #fcf6f6;
+    margin-top: 100px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    border-radius: 0 4px 6px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    text-align: left;
+    
+}
+
+.Issue-card-table th, .Issue-card-table td{
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+.Issue-card-table th{
+    background-color: #f4f4f4;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.Issue-card-table td{
+    background-color: #f4f4f4;
+    font-size: 15px;
+    
+}
+.Issue-card-table .Issue-card-row:hover {
+    background-color: #f9f9f9;
+}
+
+button {
+    padding: 6px 12px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    text-decoration: #ccc;
+}
+.resolve-button{
+    background-color: #4CAF50;
+    color: white;
+    opacity: 0.9;
+}
+
+.communication-button{
+    background-color: #008CBA;
+    color: white;
+}
+
+button:hover{
+    opacity: 0.9;
+}

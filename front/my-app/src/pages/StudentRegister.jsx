@@ -1,7 +1,11 @@
 import Button from "../UI/Button"
 import Input from "../UI/input";
 import { useNavigate } from "react-router-dom";
+
 import { useState } from "react";
+
+import '../pages/styles/StudentRegister.css';
+
 
 function StudentRegister(){
   const navigate=useNavigate()
@@ -19,7 +23,8 @@ function StudentRegister(){
 
   }
   return(
-    <div>
+    
+      <div className="student-form">
       <h3>Register: Student</h3>
       <Input type="text" value={name} onChange={entername} placeholder="Name"></Input><br/>
       <Input type="text" placeholder="Email"></Input><br/>
@@ -29,6 +34,7 @@ function StudentRegister(){
       <Input type="text" placeholder="confirm password"></Input><br/>
       <Button onClick={gotoStudentHome}>Signup</Button>
     </div>
+ 
   )
 
 }

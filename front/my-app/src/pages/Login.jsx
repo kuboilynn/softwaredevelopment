@@ -11,7 +11,7 @@ function Login() {
   const[regno,setregno]=useState();
 
   function enterregno(event){
-    if (setregno==""){
+    if (setregno===""){
       return "reg no required"
     }
     setregno(event.target.value);

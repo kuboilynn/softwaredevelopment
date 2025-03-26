@@ -2,6 +2,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+
     background-color:rgb(185, 252, 237);
     margin: 0;
     padding: 0;
@@ -11,21 +12,33 @@ body {
 }
 
 div{
+
+  background-color:rgb(201, 255, 243);
+ 
+ 
+  /*flex-shrink: 1;
+  flex-grow: 1;
+  display:block;
+  align-items: center;
+
+  
+  display:grid;
+  place-items:center;
+  height:100hv; 
+  margin:0;*/
+}
+
+/*div{
+  display:flex;
+  flex-shrink: 1;
+
   flex-grow: 1;
   display:block;
   align-items: center;
   flex-direction: column
 
-}
+}*/
 
-.Login{
-  
-  text-align: left;
-  display:flex;
-  align-items: left;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 20px;
- 
-}
+
 
 

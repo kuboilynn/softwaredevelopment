@@ -22,8 +22,13 @@ import './styles/Register.css';
     <h3 style={{fontWeight:"bold",fontStyle:"arial"}}>Are you signing up as?</h3>
   
   <div className="Buttons">
+
     <Button  className="Student" onClick={gotoStudentRegister} >Student</Button>
     <Button  className="Lecturer" onClick={gotoDashboard}>Lecturer</Button>
+
+    <Button  className="Student" onClick={gotoStudentRegister} >Student</Button><br/>
+    <Button  className="Lecturer" >Lecturer</Button><br/>
+
     <Button  className="Register" >Registrar</Button>
   </div>
     <p>Already have an account?Login</p>

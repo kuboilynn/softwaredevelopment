@@ -1,20 +1,19 @@
 import styled from "styled-components"
 
-const Input=styled.input`
+const Select=styled.select`
 display:flex;
 border-radius:5px;
 flex-shrink:1;
 width:280px;
 height:40px;
-border:none;
-margin:8px;
+padding:5px 5px 5px 5px;
 
 
 
 &:hover{
-  border-color:blue;
+  border-color:pink;
 
 }
 `
 
-export default Input
+export default Select

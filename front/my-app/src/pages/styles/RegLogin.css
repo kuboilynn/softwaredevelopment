@@ -13,17 +13,16 @@
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
 }
-.container img{
-    width: 450px;
-    height: auto;
-    margin-bottom: 20px;
-}
 
-.Buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 5px;
-    margin-left: -60px;
+
+
+div{
+  display:flex;
+  flex-shrink: 1;
+  flex-grow: 1;
+  display:block;
+  align-items: center;
+  flex-direction: column
+
 }
 

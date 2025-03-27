@@ -9,7 +9,7 @@ const SideBar=()=>{
                 <li><Link to="/LecturerDashBoard/home">Home</Link></li>
                 <li><Link to="/LecturerDashBoard/issues">Issues</Link></li>
                 <li><Link to="/LecturerDashBoard/communication">Communication</Link></li>
-                <li><Link to="/LecturerDashBoard/statscard">StatsCard</Link></li>
+                <li><Link to="/LecturerDashBoard/profile">Profile</Link></li>
                 
             </ul>
 

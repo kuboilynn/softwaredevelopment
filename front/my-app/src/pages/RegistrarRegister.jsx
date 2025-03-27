@@ -7,7 +7,7 @@ import { useState } from "react";
 import '../pages/styles/studentRegister.css';
 
 
-function StudentRegister(){
+function RegistrarRegister(){
   const navigate=useNavigate()
   const[name,setname]=useState()
   function entername(event){
@@ -18,25 +18,25 @@ function StudentRegister(){
     setname(event.target.value);
   }
 
-  function gotoStudentHome(){
-    navigate("/StudentHome")
+  function gotoRegistrarHome(){
+    navigate("/RegistrarDashboard/Home")
 
   }
   return(
     
       <div className="student-form">
-      <h3>Register: Student</h3>
+      <h3>Register: Registrar</h3>
       <Input type="text" value={name} onChange={entername} placeholder="Name"></Input><br/>
       <Input type="text" placeholder="Email"></Input><br/>
       <Input type="text" placeholder="Reg No"></Input><br/>
-      <Input type="text"  placeholder="Student No"></Input><br/>
+      <Input type="text"  placeholder="College"></Input><br/>
       <Input type="text" placeholder="password"></Input><br/>
       <Input type="text" placeholder="confirm password"></Input><br/>
-      <Button onClick={gotoStudentHome}>Signup</Button>
+      <Button onClick={gotoRegistrarHome}>Signup</Button>
     </div>
  
   )
 
 }
 
-export default StudentRegister
+export default RegistrarRegister

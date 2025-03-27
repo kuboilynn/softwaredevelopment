@@ -14,6 +14,7 @@ import StudentHome from './pages/StudentHome';
 import StudentIssues from './pages/StudentIssues';
 import FileIssue from './pages/FileIssue';
 import Profile from './pages/Profile';
+import LecturerRegister from './pages/LecturerRegister.jsx';
 
 
 
@@ -27,7 +28,7 @@ const root =ReactDOM.createRoot(document.getElementById('root'));root.render(
       <Route path="/StudentRegister" element={<StudentRegister/>}/>
 
       <Route path="/LecturerDashBoard/*" element={<Dashboard/>}/>
-
+      <Route path="/LecturerRegister" element={<LecturerRegister/>}/>
       <Route path="/StudentHome" element={<StudentHome/>}/>
       <Route path="/StudentIssues" element={<StudentIssues/>}/>
       <Route path="/FileIssue" element={<FileIssue/>}/>

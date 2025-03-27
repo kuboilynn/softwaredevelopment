@@ -1,0 +1,21 @@
+
+.registerStudent{
+  
+  border: 1px solid rgb(172, 251, 253);
+  border-radius: 5px;
+  max-width: 350px;
+  max-height: 1000px;
+  text-align: center;
+  align-items: center;
+  box-shadow: 5px  5px 5px rgb(155, 153, 153);
+
+ 
+}
+.image{
+  align-items: right;
+  display: flex;
+  justify-content:flex-end;
+  max-width: 500px;
+  max-height: 1000px;
+  float:right;
+}

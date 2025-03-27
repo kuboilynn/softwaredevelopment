@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 
-import '../pages/styles/StudentRegister.css';
+import '../pages/styles/studentRegister.css';
 
 
 function StudentRegister(){

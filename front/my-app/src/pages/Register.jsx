@@ -25,10 +25,6 @@ import './styles/Register.css';
 
     <Button  className="Student" onClick={gotoStudentRegister} >Student</Button>
     <Button  className="Lecturer" onClick={gotoDashboard}>Lecturer</Button>
-
-    <Button  className="Student" onClick={gotoStudentRegister} >Student</Button><br/>
-    <Button  className="Lecturer" >Lecturer</Button><br/>
-
     <Button  className="Register" >Registrar</Button>
   </div>
     <p>Already have an account?Login</p>

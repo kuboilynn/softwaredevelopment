@@ -8,7 +8,7 @@ import './styles/Register.css';
    const navigate=useNavigate()
    
    function gotoDashboard(){
-    navigate("/LecturerDashboard/Home");
+    navigate("/LecturerRegister");
    }
 
    function gotoStudentRegister(){

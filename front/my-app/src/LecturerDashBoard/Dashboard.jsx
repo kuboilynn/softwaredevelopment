@@ -5,7 +5,6 @@ import SideBar from './SideBar.jsx';
 import Home from './Home.jsx';
 import IssueCard from './IssueCard.jsx';
 import Communication from './Communication.jsx';
-import StatsCard from './StatsCard.jsx';
 import Profile from "./Profile.jsx";
 const Dashboard =()=>{
     return(
@@ -19,7 +18,6 @@ const Dashboard =()=>{
                         <Route path="/home" element={<Home />}/> 
                         <Route path="/issues" element={<IssueCard />} />
                         <Route path="/communication" element={<Communication />}/>
-                        <Route path="/statscard" element={<StatsCard />} /> 
                         <Route path="profile" element={<Profile />}/>
                         <Route path="/" element={<div>Dashboard Home</div>}/>      
                     </Routes>

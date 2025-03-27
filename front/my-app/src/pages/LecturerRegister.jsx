@@ -25,11 +25,12 @@ function LecturerRegister(){
   return(
     
       <div className="student-form">
-      <h3>Register: Student</h3>
+      <h3>Register: Lecturer</h3>
       <Input type="text" value={name} onChange={entername} placeholder="Name"></Input><br/>
       <Input type="text" placeholder="Email"></Input><br/>
       <Input type="text" placeholder="Reg No"></Input><br/>
-      <Input type="text"  placeholder="Student No"></Input><br/>
+      <Input type="text"  placeholder="Program"></Input><br/>
+      <Input type="text"  placeholder="office"></Input><br/>
       <Input type="text" placeholder="password"></Input><br/>
       <Input type="text" placeholder="confirm password"></Input><br/>
       <Button onClick={gotoStudentHome}>Signup</Button>

@@ -48,7 +48,7 @@ const SideBar = () => {
           {isOpen && (
             <>
               <Link to="/lecturerDashBoard/communication" className="nav-link">Communication</Link>
-              <span className="badge">5</span>
+
             </>
           )}
         </li>

@@ -7,12 +7,12 @@ import './styles/Login.css';
 
 
 function Login() {
-  const[regno, setRegno]=useState("");
+  const[username, setUsername]=useState("");
   const [password, setPassword]= useState("");
   const[showError, setShowError]=useState(false);
 
-  function handleRegnoChange(event){
-    setRegno(event.target.value);
+  function handleUsernameChange(event){
+    setUsername(event.target.value);
     setShowError(false);
   }
 
@@ -21,11 +21,11 @@ function Login() {
   }
 
   function handleLogin(){
-    if(regno === ""){
+    if(username === ""){
       setShowError(true);
     } else {
       setShowError(false);
-      console.log("Login attempted with:", {regno,password});
+      console.log("Login attempted with:", {username,password});
 
     }
   }
@@ -38,12 +38,12 @@ function Login() {
       <div className="input-group">
       <Input 
       type="text" 
-      value={regno} 
-      onChange={handleRegnoChange}
-      placeholder="Student No/Reg" 
+      value={username} 
+      onChange={handleUsernameChange}
+      placeholder="User name" 
       className="input-field"
       />
-      {showError && <span className="error">Reg no required</span>}
+      {showError && <span className="error">User name required</span>}
       </div>
 
       <div className="input-group">

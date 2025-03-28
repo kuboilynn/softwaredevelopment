@@ -1,42 +1,73 @@
-import Button from "../UI/Button"
 import Input from "../UI/input";
 import { useNavigate } from "react-router-dom";
-
 import { useState } from "react";
-
 import '../pages/styles/StudentRegister.css';
 
 
-function StudentRegister(){
-  const navigate=useNavigate()
-  const[name,setname]=useState()
-  function entername(event){
-    if(setname===""){
-      return"*required"
 
-    }
-    setname(event.target.value);
+function StudentRegister(){
+  const navigate=useNavigate();
+  const[name,setName]=useState("");
+  const[showError, setShowError]=useState(false);
+
+  function handleNameChange(event){
+    setName(event.target.value);
+    setShowError(false);
   }
 
-  function gotoStudentHome(){
-    navigate("/StudentHome")
 
+  function gotoStudentHome(){
+    if (name ===""){
+      setShowError(true);
+    } else{
+      setShowError(false);
+      navigate("/StudentHome")
+    }
+    
   }
   return(
     
       <div className="student-form">
-      <h3>Register: Student</h3>
-      <Input type="text" value={name} onChange={entername} placeholder="Name"></Input><br/>
-      <Input type="text" placeholder="Email"></Input><br/>
-      <Input type="text" placeholder="Reg No"></Input><br/>
-      <Input type="text"  placeholder="Student No"></Input><br/>
-      <Input type="text" placeholder="password"></Input><br/>
-      <Input type="text" placeholder="confirm password"></Input><br/>
-      <Button onClick={gotoStudentHome}>Signup</Button>
-    </div>
+      <h3><i className="fas fa-user-graduate"></i>Register: Student</h3>
+      <p className="tagline">Start Your Academic Journey</p>
+      
+      <div className="Input-group">
+      <Input 
+      type="text" 
+      value={name}
+      onChange={handleNameChange}
+      placeholder="Name"
+      className="Input-field"
+      />
+      {showError && <span className="error">*Required</span>}
+      </div>
  
-  )
 
+      <div className="Input-group">
+      <Input type="email" placeholder="Email" className="Input-field"/>
+      </div>
+
+      <div className="Input-group">
+      <Input type="text" placeholder="Reg No" className="Input-field"/>
+      </div>
+
+      <div className="Input-group">
+      <Input type="text" placeholder="Student No" className="Input-field"/>
+      </div>
+
+      <div className="Input-group">
+      <Input type="password" placeholder="Password" className="Input-field"/>
+      </div>
+
+      <div className="Input-group">
+      <Input type="password" placeholder="Confirm password" className="Input-field"/>
+      </div>
+      
+      <button className="signup-btn"
+      onClick={gotoStudentHome}>
+        <i className="fas fa-user-plus"></i>Signup</button>
+    </div>
+  );
 }
 
 export default StudentRegister

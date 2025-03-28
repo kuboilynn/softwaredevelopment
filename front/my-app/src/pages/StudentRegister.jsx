@@ -1,7 +1,8 @@
 import Input from "../UI/input";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import '../pages/styles/StudentRegister.css';
+import '../pages/styles/AllRegister.css';
+import { motion } from "framer-motion";
 
 
 
@@ -29,7 +30,8 @@ function StudentRegister(){
     
       <div className="student-form">
       <h3><i className="fas fa-user-graduate"></i>Register: Student</h3>
-      <p className="tagline">Start Your Academic Journey</p>
+      <motion.p initial={{opacity: 0, y: -50}}
+      animate={{ opacity: 1, y: 0}}className="tagline">Start Your Academic Journey</motion.p>
       
       <div className="Input-group">
       <Input 

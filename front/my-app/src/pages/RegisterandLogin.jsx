@@ -2,10 +2,11 @@ import { useNavigate } from "react-router-dom"
 import makerere from "../assets/makererelogo.png"
 import Button from "../UI/Button"
 import Img from "../UI/Img"
+import { motion } from "framer-motion"
 import './styles/RegLogin.css';
 
 function RegisterandLogin(){
-
+  
   const navigate=useNavigate()
   function GotoLogin(){
     navigate("/Login")
@@ -20,16 +21,21 @@ function RegisterandLogin(){
   return (
     <div className="container">
       <title>Academic Issue Tracking System</title>
-      <h1>Academic Issue Tracking System</h1>
-      <Img src={makerere} alt="makerere logo"/>
+      <motion.h1 initial={{opacity: 0, y: -50}}
+      animate={{ opacity: 1, y: 0}}
+      >Academic Issue Tracking System</motion.h1>
+      
+      <Img src={makerere} alt="makerere logo" className="logo"/>
 
       <div className="Buttons">
       <Button className="login" onClick={GotoLogin}>Login</Button>
-      <Button  className="Register" onClick={GotoRegister}>Register</Button>
+      
+      <Button  className="Register" onClick={GotoRegister}>
+        <i className="fas fa-user-plus"></i>Register</Button>
       </div>
       
     </div>
-  )
+  );
 
 }
 

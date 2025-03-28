@@ -20,17 +20,26 @@ import './styles/Register.css';
   return(
   
   <div className="register">
-    <Img src={makerere} alt="makerere logo"/><br/>
+    <Img src={makerere} alt="makerere logo" className="logo"/><br/>
     <h3 style={{fontWeight:"bold",fontStyle:"arial"}}>Are you signing up as?</h3>
-  
-  <div className="Buttons">
+    <p>Join the Academic Community</p>
 
-    <Button  className="Student" onClick={gotoStudentRegister} >Student</Button>
-    <Button  className="Lecturer" onClick={gotoLecturerRegister}>Lecturer</Button>
-    <Button  className="Register" onClick={gotoRegistrarRegister}>Registrar</Button>
+  
+  <div className="all-Button">
+
+    <Button  className="Student" 
+    onClick={gotoStudentRegister} 
+    >Student</Button>
+    <Button  className="Lecturer" 
+    onClick={gotoLecturerRegister}
+    >Lecturer</Button>
+    <Button  className="Register" 
+    onClick={gotoRegistrarRegister}
+    >Registrar</Button>
 
   </div>
-    <p>Already have an account?Login</p>
+    <p className="login-link">
+      Already have an account? <a href="/Login">Login</a></p>
   </div>
   )
 

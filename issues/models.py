@@ -34,30 +34,29 @@ class Issue(models.Model):
         ('closed', 'Closed'),
     ]
 
-class Issue(models.Model):
-    ISSUE_TYPES = [
-        ('Missing_marks', 'Missing Marks'),
-        ('appeal', 'Appeal'),
-        ('correction', 'Correction'),
-    ]
-    STATUS_CHOICES = [
-        ('open', 'Open'),
-        ('in_progress', 'In Progress'),
-        ('resolved', 'Resolved'),
-        ('closed', 'Closed'),
-    ]
-
     title = models.CharField(max_length=255)
     description = models.TextField()
-    student = models.ForeignKey(UserProfile, on_delete=models.CASCADE, limit_choices_to={'role': 'student'})
+    student = models.ForeignKey(
+        UserProfile, 
+        on_delete=models.CASCADE, 
+        limit_choices_to={'role': 'student'}, 
+        related_name="submitted_issues"  # Prevents conflict
+    )
     department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True)
     issue_type = models.CharField(max_length=20, choices=ISSUE_TYPES)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='open')
-    assigned_at = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, limit_choices_to={'role__in': ['lecturer', 'registrar']})
+    assigned_to = models.ForeignKey(
+        UserProfile, 
+        on_delete=models.SET_NULL, 
+        null=True, 
+        blank=True, 
+        limit_choices_to={'role__in': ['lecturer', 'registrar']}, 
+        related_name="assigned_issues"  # Prevents conflict
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.title} - {self.get_issue_type_display()}"
+        return f"{self.title} - {self.get_status_display()}"
 
                             

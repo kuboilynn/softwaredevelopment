@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import '../pages/styles/IssueCard.css';
 
 const IssueCard = ({ issues }) => {
-    // Ensure issues is always an array and fallback to an empty array if not passed
+    
     const [issueList, setIssueList] = useState(issues || []);
     const [filterStatus, setFilterStatus] = useState('All');
     const [sortField, setSortField] = useState('title');
     const [sortOrder, setSortOrder] = useState('asc');
 
-    // Resolve issue handler
+  
     const handleResolve = (issueId) => {
         setIssueList((prevIssues) =>
             prevIssues.map((issue) =>
@@ -20,7 +20,7 @@ const IssueCard = ({ issues }) => {
         console.log(`Issue with ID: ${issueId} has been resolved`);
     };
 
-    // Sorting handler
+   
     const handleSort = (field) => {
         const newSortOrder = sortField === field && sortOrder === 'asc' ? 'desc' : 'asc';
         setSortField(field);
@@ -37,7 +37,7 @@ const IssueCard = ({ issues }) => {
         );
     };
 
-    // Filter issues based on status
+    
     const filteredIssues = issueList.filter((issue) => {
         if (filterStatus === 'All') return true;
         return issue.status === filterStatus;
@@ -45,7 +45,7 @@ const IssueCard = ({ issues }) => {
 
     return (
         <div className="issue-card-container">
-            {/* Filter section */}
+            
             <div className="filter-section">
                 <label>Filter by Status:</label>
                 <select
@@ -59,7 +59,7 @@ const IssueCard = ({ issues }) => {
                 </select>
             </div>
 
-            {/* Issues Table */}
+            
             <table className="Issue-card-table">
                 <thead>
                     <tr>

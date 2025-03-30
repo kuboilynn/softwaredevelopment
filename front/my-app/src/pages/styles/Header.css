@@ -25,22 +25,11 @@
     letter-spacing: 2px;
     
 }
-.profile-button{
-    padding: 0.5rem 1rem;
-    background: #fdfeff;
-    color: black;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.profile-button:hover{
-    background-color: #0056b3;
-}  
-
+ 
 .Logout-button{
     background-color: #ffeb3b;
     color: #333;
-    margin-left: 80%;
+    margin-left: 20%;
     padding: 10px 20px;
     border: none;
     font-weight: bold;

@@ -10,7 +10,7 @@ function RegistrarProfile(){
       <div className="content">
            <p>Profile</p>
            
-           <Button >Edit Profile</Button>
+           
            <label>Name</label>
             <Input placeholder="Name"></Input>
             <label>Registration number</label>
@@ -19,6 +19,7 @@ function RegistrarProfile(){
             <Input placeholder="123"></Input>
             <label>Email</label>
             <Input placeholder="123@gmail.com"></Input>
+            <Button >Edit </Button>
           </div>
   </div>)
  

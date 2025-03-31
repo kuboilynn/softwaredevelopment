@@ -64,7 +64,7 @@ function StudentRegister() {
         </div>
 
         <Button onClick={gotoStudentHome} className="signup-btn">
-          <i className="fas fa-user-plus"></i> Signup
+        <i className="fas fa-user-plus"></i>Signup
         </Button>
       </div>
 

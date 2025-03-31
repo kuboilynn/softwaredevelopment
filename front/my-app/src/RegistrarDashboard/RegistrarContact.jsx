@@ -21,6 +21,7 @@ function Contact(){
         };
   return(<>
   <DashboardRegistrar/>
+  <form>
  <div className='content'>
         <label>Message:</label>
           <textarea className='textarea'
@@ -35,6 +36,7 @@ function Contact(){
     <button className="Message-button" onClick={sendMessage}>Send Message</button>
     <div className="message">{statusMessage}</div>
     </div>
+    </form>
   </>)
 }
 

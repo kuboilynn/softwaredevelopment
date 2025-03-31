@@ -5,6 +5,8 @@
   margin-left:250px;
   padding:20px;
   transition: margin-left 0.3 ease-in-out;
+  flex-direction: column;
+  align-content: center;
 }
 .content-file{
   display: flex;
@@ -22,6 +24,7 @@
   text-align: center;
   align-items: center;
   box-shadow: 5px  5px 5px rgb(155, 153, 153);
+
 }
 
 

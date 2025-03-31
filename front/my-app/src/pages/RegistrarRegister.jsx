@@ -3,7 +3,7 @@ import Input from "../UI/input";
 import { useNavigate } from "react-router-dom";
 
 import { useState } from "react";
-
+import students from"../assets/study-group-african-people.jpg"
 import '../pages/styles/studentRegister.css';
 
 
@@ -23,9 +23,11 @@ function RegistrarRegister(){
 
   }
   return(
-    
+    <>
+    <img src={students} alt="students" className="image"/>
+    <h3>Register: Registrar</h3>
       <div className="student-form">
-      <h3>Register: Registrar</h3>
+      
       <Input type="text" value={name} onChange={entername} placeholder="Name"></Input><br/>
       <Input type="text" placeholder="Email"></Input><br/>
       <Input type="text" placeholder="Reg No"></Input><br/>
@@ -34,7 +36,7 @@ function RegistrarRegister(){
       <Input type="text" placeholder="confirm password"></Input><br/>
       <Button onClick={gotoRegistrarHome}>Signup</Button>
     </div>
- 
+    </>
   )
 
 }

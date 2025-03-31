@@ -3,7 +3,7 @@ import Input from "../UI/input";
 import { useNavigate } from "react-router-dom";
 
 import { useState } from "react";
-
+import students from"../assets/study-group-african-people.jpg"
 import '../pages/styles/studentRegister.css';
 
 
@@ -22,10 +22,10 @@ function StudentRegister(){
     navigate("/StudentHome")
 
   }
-  return(
-    
+  return(<>
+      <img src={students} alt="student" className="image"/>
+      <h3 style={{alignItems:"center"}}>Register: Student</h3>
       <div className="student-form">
-      <h3>Register: Student</h3>
       <Input type="text" value={name} onChange={entername} placeholder="Name"></Input><br/>
       <Input type="text" placeholder="Email"></Input><br/>
       <Input type="text" placeholder="Reg No"></Input><br/>
@@ -34,6 +34,7 @@ function StudentRegister(){
       <Input type="text" placeholder="confirm password"></Input><br/>
       <Button onClick={gotoStudentHome}>Signup</Button>
     </div>
+    </>
  
   )
 

@@ -3,8 +3,12 @@ import '../pages/styles/StudentHome.css';
 
 function Home(){
   return(<>
-  <p>hii</p>
+ 
   <DashboardRegistrar/>
+  <div className='sidebar'>
+    <p>messages</p>
+
+  </div>
   </>)
 }
 

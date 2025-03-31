@@ -6,15 +6,10 @@ function StudentHome(){
   return(<div>
           <DashboardStudent/>
           <div className="content-home">
-            <div id="boxes">
-              <div>No more stress
-               
-              </div>
-              <div>2</div>
-              <div>3</div>
+            <div className="sidebar">
+              <p>Messages</p>
             </div>
-            
             </div>
   </div>)
-}
+};
 export default StudentHome

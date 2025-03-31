@@ -2,26 +2,34 @@ import DashboardStudent from "./DashboardStudent"
 import './styles/StudentHome.css';
 import Button from "../UI/Button";
 import Input from "../UI/input";
-import ProfilePic from "../UI/profile";
-import stress from "../assets/stress.jpg"
+import ProfilePic from "../UI/profile"
+import { useState } from "react";
+
 
 function Profile(){
 
-  function edit(){
-    return(<div>
-      <label>Name</label>
-      <Input placeholder="Name"></Input>
-      <label>Registration number</label>
-    </div>
+  const defaultimage="https://via.placeholder.com/150"
+  const [profileimage,setprofileimage]= useState(defaultimage);
 
-    )
-  }
+    const handleimage=(e)=>{
+      const file =e.target.files[0];
+      if(file){
+        const imageUrl=URL.createObjectURL(file);
+        setprofileimage(imageUrl);
+      }
+    }
+  
+  
+ 
   return(<div>
           <DashboardStudent/>
           <div className="content">
            <p>Profile</p>
-           <ProfilePic src={stress} alt="profile"/>
-           <Button onClick={edit}>Edit Profile</Button>
+           <ProfilePic src={profileimage} alt="profile picture"/>
+           <input type="file"
+           accept="image/*"
+           onChange={handleimage}></input>
+       
            <label>Name</label>
             <Input placeholder="Name"></Input>
             <label>Registration number</label>
@@ -30,6 +38,7 @@ function Profile(){
             <Input placeholder="123"></Input>
             <label>Email</label>
             <Input placeholder="123@gmail.com"></Input>
+            <Button>Edit Profile</Button>
           </div>
   </div>)
 }

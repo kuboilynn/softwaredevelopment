@@ -17,8 +17,9 @@ import Profile from './pages/Profile';
 import LecturerRegister from './pages/LecturerRegister.jsx';
 import RegistrarRegister from './pages/RegistrarRegister.jsx';
 import Home from './RegistrarDashboard/Home.jsx';
-
-
+import Issues from './RegistrarDashboard/Issues.jsx';
+import ProfileRegistrar from './RegistrarDashboard/ProfileRegistrar.jsx';
+import RegistrarContact from './RegistrarDashboard/RegistrarContact.jsx';
 
 const root =ReactDOM.createRoot(document.getElementById('root'));root.render(
   <React.StrictMode>
@@ -29,6 +30,9 @@ const root =ReactDOM.createRoot(document.getElementById('root'));root.render(
       <Route path="/Login" element={<Login/>}/>
       <Route path="/StudentRegister" element={<StudentRegister/>}/>
       <Route path="/RegistrarDashboard/Home" element={<Home/>}/>
+      <Route path="/RegistrarDashboard/Issues" element={<Issues/>}/>
+      <Route path="/RegistrarDashboard/Profile" element={<ProfileRegistrar/>}/>
+      <Route path="/RegistrarDashboard/RegistrarContact" element={<RegistrarContact/>}/>
       <Route path="/LecturerDashBoard/*" element={<Dashboard/>}/>
       <Route path="/LecturerRegister" element={<LecturerRegister/>}/>
       <Route path="/RegistrarRegister" element={<RegistrarRegister/>}/>

@@ -35,36 +35,15 @@
   margin-left:250px;
   padding:20px;
   transition: margin-left 0.3 ease-in-out;
- 
-  
-
 }
-#boxes{
-  display: grid;
-  grid-template-columns: repeat(1fr 1fr);
-  grid-template-rows: 1fr 1fr;
-  background-color:rgb(201, 255, 243);
-  gap: 5px;
-  
-}
-#boxes div{
-  padding: 20px;
-  text-align: center;
-  border: 2px  solid rgb(195, 90, 205);
-  border-radius: 5px;
-  background-color: plum;
-}
-#boxes div:nth-child(3){
-  grid-column: 2;
-  grid-row: 1/span 2;
-  width: 300px;
-  height: 700px;
-}
-#boxes div:nth-child(2){
-  width: 300px;
-  height: 300px;
-}
-#boxes div:nth-child(1){
-  width: 300px;
-  height: 200px;
+.sidebar{
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  right:5px;
+  width:400px;
+  height: 100%;
+  top: 70px;;
 }

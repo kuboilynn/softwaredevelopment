@@ -1,5 +1,5 @@
 import DashboardRegistrar from './Dashboard';
-import '../pages/styles/StudentHome.css';
+import '../pages/styles/student.css';
 
 function Home(){
   return(<>

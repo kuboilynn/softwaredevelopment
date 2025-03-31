@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 import Input from '../UI/input';
 import "../pages/styles/contact.css";
-import '../pages/styles/StudentHome.css';
+import '../pages/styles/student.css';
 function Contact(){
   
       const [message, setMessage] = useState("");

@@ -1,7 +1,7 @@
 import DashboardRegistrar from './Dashboard';
 import Button from "../UI/Button"
 import Input from '../UI/input';
-import '../pages/styles/StudentHome.css';
+import '../pages/styles/student.css';
 
 function RegistrarProfile(){
   return(

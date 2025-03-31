@@ -1,5 +1,5 @@
 import DashboardStudent from "./DashboardStudent"
-import './styles/StudentHome.css';
+import './styles/student.css';
 import Button from "../UI/Button";
 import Input from "../UI/input";
 import ProfilePic from "../UI/profile"

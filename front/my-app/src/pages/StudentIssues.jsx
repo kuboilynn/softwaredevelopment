@@ -1,5 +1,5 @@
 import DashboardStudent from "./DashboardStudent"
-import './styles/StudentHome.css';
+import './styles/student.css';
 
 function StudentIssues(){
   return(<div>

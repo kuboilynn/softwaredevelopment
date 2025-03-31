@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Input from "../UI/input"; // Assuming Input is a custom component
 import Button from "../UI/Button"; // Assuming Button is a custom component
 import students from "../assets/study-group-african-people.jpg"; // Student image
-import '../pages/styles/studentRegister.css';
 import '../pages/styles/AllRegister.css';
 
 function StudentRegister() {

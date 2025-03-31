@@ -1,5 +1,5 @@
 import DashboardStudent from "./DashboardStudent"
-import './styles/StudentHome.css';
+import './styles/student.css';
 import Input from "../UI/input";
 import Select from "../UI/select";
 import Button from "../UI/Button"

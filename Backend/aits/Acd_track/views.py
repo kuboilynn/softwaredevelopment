@@ -11,6 +11,28 @@ from rest_framework.authtoken.models import Token
 from rest_framework.parsers import MultiPartParser, FormParser
 
 # Create your views here.
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def api_endpoints_view(request):
+    endpoints = {
+        "register": "/accounts/register",
+        "login": "/accounts/login",
+        "activate account": "/accounts/activate/<str:uidb64>/<str:token>",
+        "token refresh": "/accounts/token/refresh",
+        "profile": "/accounts/profile",
+        "request password reset": "/accounts/request-password-reset",
+        "reset password": "/accounts/reset-password/<str:uidb64>/<str:token>",
+        "list lecturers": "/accounts/lecturers",
+        "list students": "/accounts/students",
+        "list registrars": "/accounts/registrars",
+        "submissions": "/submissions",
+        "submission detail": "/submissions/<int:pk>",
+        "notifications": "/notifications",
+        "notification detail": "/notifications/<int:pk>"
+    }
+    return Response(endpoints)
+
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def submission_list(request):

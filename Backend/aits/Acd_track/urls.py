@@ -2,6 +2,9 @@ from django.urls import path
 from .import views
 
 urlpatterns=[
+
+    path('api-endpoints', views.api_endpoints_view,name='api-endpoints'),
+
     #submissions
     path('submissions', views.submission_list, name='submission-list'),
     path('submissions/<int:pk>', views.submission_detail, name='submission-detail'),

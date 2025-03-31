@@ -15,9 +15,10 @@ class DepartmentSerializer(serializers.ModelSerializer):
 
 # Issue Serializer
 class IssueSerializer(serializers.ModelSerializer):
-    student = UserProfileSerializer(read_only=True)
+    student = serializers.HiddenField(default=serializers.CurrentUserDefault())  # Automatically set student
     assigned_to = UserProfileSerializer(read_only=True)
 
     class Meta:
         model = Issue
-        fields = '__all__'
+        fields = ['id', 'title', 'description', 'department', 'issue_type', 'status', 'created_at', 'student']
+        read_only_fields = ['status', 'created_at']  # Status should only be updated by staff

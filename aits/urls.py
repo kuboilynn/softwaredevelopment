@@ -24,7 +24,7 @@ from issues.views import UserProfileViewSet, DepartmentViewSet, IssueViewSet
 router = DefaultRouter()
 router.register(r'users', UserProfileViewSet)
 router.register(r'departments', DepartmentViewSet)
-router.register(r'issues', IssueViewSet)
+router.register(r'issues', IssueViewSet, basename='issue')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

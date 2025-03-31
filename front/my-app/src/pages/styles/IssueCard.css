@@ -1,16 +1,36 @@
 .issue-card-container{
     width: calc(100% - 200px);
-    margin-left: 200px;
+    padding: 1rem;
+    background: #f9f9f9;
+    margin-top: 175px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-left: 100px;
     overflow: auto;
 }
+
+.filter-section{
+    margin-bottom: 1rem;
+}
+
+.filter-dropdown{
+    padding: 0.5rem;
+    border-radius: 80px;
+    border: 1px solid #ddd;
+    background-color: white;
+    cursor: pointer;
+}
+
 .Issue-card-table{
     width: 100%;
+    border-collapse: collapse;
     margin: 20px 0;
-    background-color: #fcf6f6;
+    background-color: white;
     margin-top: 100px;
+    overflow: hidden;
     padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 2px;
+    border-radius: 8px;
     border-radius: 0 4px 6px rgba(0,0,0,0.2);
     margin-bottom: 20px;
     text-align: left;
@@ -23,9 +43,11 @@
     text-align: left;
 }
 .Issue-card-table th{
-    background-color: #f4f4f4;
+    background-color: #007bff;
+    color: white;
     font-size: 25px;
     font-weight: bold;
+    
 }
 
 .Issue-card-table td{
@@ -33,6 +55,23 @@
     font-size: 15px;
     
 }
+.Issue-card-row:hover{
+    background: #f1f1f1;
+}
+
+.status-badge{
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+}
+
+.status-badge.pending{
+    background-color: #ffcc00;
+    border-radius: 12px;
+    color: #333;
+}
+
+
 .Issue-card-table .Issue-card-row:hover {
     background-color: #f9f9f9;
 }
@@ -59,3 +98,4 @@ button {
 button:hover{
     opacity: 0.9;
 }
+

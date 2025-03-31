@@ -1,38 +1,47 @@
 .register{
+    min-height: 100vh;    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 10px;
-    margin-top: 5px;
+    padding: 20px;
+    margin-top: -100px;
 }
 
-
+.logo{
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;  
+}
 
 .register h3{
-    font-size: 20px;
+    font-size: 30px;
     color: #333;
+    font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: -60px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
-
-
 
 .register p{
     font-size: 20px;
     color: #333;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
-
 }
-div{
-  display:flex;
-  flex-shrink: 1;
-  flex-grow: 1;
-  display:block;
-  align-items: center;
-  flex-direction: column
 
+.login-link{
+    margin-top: 20px;
+    color: #7f8c8d;
 }
+
+.login-link a {
+    text-decoration: none;
+    color: #fa520b;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+

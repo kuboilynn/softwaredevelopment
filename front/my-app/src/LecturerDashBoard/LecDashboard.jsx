@@ -1,6 +1,7 @@
 import { Link, Outlet } from 'react-router-dom';
 import { FaBars, FaHome, FaFlag, FaUser, FaFileAlt } from 'react-icons/fa';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion'; 
 import './LecturerDashBoard.css';
 
 function LecDashboard() {
@@ -8,58 +9,113 @@ function LecDashboard() {
 
   const toggleDashboard = () => setDashboard(!dashboard);
 
+  
+  const sidebarVariants = {
+    active: {
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      },
+    },
+    closed: {
+      x: "-100%",
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      },
+    },
+  };
+
+  
+  const mainVariants = {
+    shifted: {
+      marginLeft: "250px", 
+      transition: { ease: "easeInOut", duration: 0.3 },
+    },
+    initial: {
+      marginLeft: "0",
+      transition: { ease: "easeInOut", duration: 0.3 },
+    },
+  };
+
+ 
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: (i) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: i * 0.1, 
+        duration: 0.3,
+      },
+    }),
+  };
+
+ 
+  const titleVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
     <div className="dashboard-container">
-      <header className="dashhead">
+      <motion.header
+        className="dashhead"
+        initial="hidden"
+        animate="visible"
+        variants={titleVariants}
+      >
         <Link to="#" className="toggle-btn" onClick={toggleDashboard}>
           <FaBars />
         </Link>
         <h1 className="dashboard-title">Lecturer Dashboard</h1>
-      </header>
+      </motion.header>
 
-      <nav className={`sidebar ${dashboard ? 'active' : 'closed'}`}>
-        <ul className="sidebar-items">
-          <li className="sidebar-item">
-            <Link to="/LecturerDashBoard/LecHome" className="sidebar-link">
-              <FaHome className="icon" />
-              <span>Home</span>
-            </Link>
-          </li>
-          <li className="sidebar-item">
-            <Link to="/LecturerDashBoard/LecIssueCard" className="sidebar-link">
-              <FaFlag className="icon" />
-              <span>IssueCard</span>
-            </Link>
-          </li>
-          <li className="sidebar-item">
-            <Link to="/LecturerDashBoard/LecCommunication" className="sidebar-link">
-              <FaFileAlt className="icon" />
-              <span>Communication</span>
-            </Link>
-          </li>
-          <li className="sidebar-item">
-            <Link to="/LecturerDashBoard/LecProfile" className="sidebar-link">
-              <FaUser className="icon" />
-              <span>Profile</span>
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <AnimatePresence>
+        <motion.nav
+          className={`sidebar ${dashboard ? 'active' : 'closed'}`}
+          initial="closed"
+          animate={dashboard ? "active" : "closed"}
+          variants={sidebarVariants}
+        >
+          <ul className="sidebar-items">
+            {[
+              { to: "/LecturerDashBoard/LecHome", icon: FaHome, text: "Home" },
+              { to: "/LecturerDashBoard/LecIssueCard", icon: FaFlag, text: "IssueCard" },
+              { to: "/LecturerDashBoard/LecCommunication", icon: FaFileAlt, text: "Communication" },
+              { to: "/LecturerDashBoard/LecProfile", icon: FaUser, text: "Profile" },
+            ].map((item, index) => (
+              <motion.li
+                key={item.text}
+                className="sidebar-item"
+                custom={index}
+                initial="hidden"
+                animate={dashboard ? "visible" : "hidden"}
+                variants={itemVariants}
+              >
+                <Link to={item.to} className="sidebar-link">
+                  <item.icon className="icon" />
+                  <span>{item.text}</span>
+                </Link>
+              </motion.li>
+            ))}
+          </ul>
+        </motion.nav>
+      </AnimatePresence>
 
-      <main className={`main-content ${dashboard ? 'shifted' : ''}`}>
-        <Outlet /> {/* Renders the nested route components here */}
-      </main>
+      <motion.main
+        className={`main-content ${dashboard ? 'shifted' : ''}`}
+        initial="initial"
+        animate={dashboard ? "shifted" : "initial"}
+        variants={mainVariants}
+      >
+        <Outlet /> 
+      </motion.main>
     </div>
   );
 }
 
 export default LecDashboard;
-
-
-
-
-
-
-
-
-

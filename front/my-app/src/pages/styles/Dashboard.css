@@ -15,11 +15,12 @@
   top:0;
   display: flex;
   position: fixed;
+  backdrop-filter: blur(10px);
 
 }
 
 .menu-bars{
-  background-color: rgb(85, 126, 238);
+  background-color: #3498db;
   margin-left: 0cm;
   font-size:30px;
   width:250px;
@@ -28,14 +29,15 @@
   justify-content: center;
   position: absolute;
   left:2;
+  backdrop-filter: blur(10px);
 
 
 }
 .active-dashboard{
-  background-color: rgb(50, 144, 151);
+  background-color: #2c3c50;
   margin-left: 0cm;
   font-size:30px;
-  width:250px;
+  width:200px;
   height: 800px;
   display:flex;
   justify-content: center;
@@ -77,11 +79,13 @@
   display: flex;
   text-decoration: none;
   color: #f8f6f8;
-  font-size: 30px;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   padding: 10px;
   width: 100%;
+  
 
 }
 .items  :hover{
-  background-color: rgb(78, 27, 99);
+  transform: scale(1.05); 
 }

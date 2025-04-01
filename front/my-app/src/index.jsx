@@ -20,6 +20,7 @@ import Home from './RegistrarDashboard/Home.jsx';
 import Issues from './RegistrarDashboard/Issues.jsx';
 import ProfileRegistrar from './RegistrarDashboard/ProfileRegistrar.jsx';
 import RegistrarContact from './RegistrarDashboard/RegistrarContact.jsx';
+import RegisterandLogin from './pages/RegisterandLogin.jsx';
 
 const root =ReactDOM.createRoot(document.getElementById('root'));root.render(
   <React.StrictMode>
@@ -40,6 +41,7 @@ const root =ReactDOM.createRoot(document.getElementById('root'));root.render(
       <Route path="/StudentIssues" element={<StudentIssues/>}/>
       <Route path="/FileIssue" element={<FileIssue/>}/>
       <Route path="/Profile" element={<Profile/>}/>
+      <Route path="/RegisterandLogin" element={<RegisterandLogin/>}/>
 
     </Routes>
     </BrowserRouter>

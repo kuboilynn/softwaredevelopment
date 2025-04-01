@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Input from "../UI/input"; // Assuming Input is a custom component
 import Button from "../UI/Button"; // Assuming Button is a custom component
-import students from "../assets/study-group-african-people.jpg"; // Student image
 import '../pages/styles/AllRegister.css';
 
 function StudentRegister() {
@@ -27,9 +26,16 @@ function StudentRegister() {
 
   return (
     <>
-      <img src={students} alt="student" className="image" />
+      
       <h3 className="register-header">Register: Student</h3>
-
+      <motion.p 
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        style={{alignContent:"center"}}
+        className="tagline"
+      >
+        Start Your Academic Journey,make problem solving easier
+      </motion.p>
       {/* Student registration form */}
       <div className="student-form">
         <div className="Input-group">
@@ -69,13 +75,7 @@ function StudentRegister() {
       </div>
 
       {/* Animated tagline */}
-      <motion.p 
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="tagline"
-      >
-        Start Your Academic Journey
-      </motion.p>
+     
     </>
   );
 }

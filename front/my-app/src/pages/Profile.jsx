@@ -28,7 +28,8 @@ function Profile(){
            <ProfilePic src={profileimage} alt="profile picture"/>
            <input type="file"
            accept="image/*"
-           onChange={handleimage}></input>
+           onChange={handleimage}
+           style={{objectFit:"cover"}}></input>
        
            <label>Name</label>
             <Input placeholder="Name"></Input>
@@ -38,7 +39,7 @@ function Profile(){
             <Input placeholder="123"></Input>
             <label>Email</label>
             <Input placeholder="123@gmail.com"></Input>
-            <Button>Edit Profile</Button>
+            <Button>Edit </Button>
           </div>
   </div>)
 }

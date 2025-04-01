@@ -23,7 +23,7 @@ function FileIssue(){
     const[errors,setErrors]=useState("")
 
     const handleChange=(e)=>{
-      setdata({...data,[e.target.courseUnit]:e.target.value,});
+      setdata({...data,[e.target.name]:e.target.value,});
       setErrors((prevErrors)=>({...prevErrors,[e.target.courseUnit]:"",}));
   };
     const handlesubmit=(e)=>{
@@ -68,7 +68,7 @@ function FileIssue(){
             <label>Lecturer</label>
             <Input type=""
             name="lecturer"
-            onchange={handleChange}
+            onChange={handleChange}
             placeholder="Enter Lecturer"/>
             {errors.lecturer && <p style={{color :"red",fontSize:10,}}>{errors.lecturer}</p>}  
             </div><br/>

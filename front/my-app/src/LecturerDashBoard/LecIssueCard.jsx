@@ -2,25 +2,30 @@ import React, { useState } from "react";
 import '../pages/styles/LecIssueCard.css';
 
 const LecIssueCard = ({ issues }) => {
-    
     const [issueList, setIssueList] = useState(issues || []);
     const [filterStatus, setFilterStatus] = useState('All');
-    const [sortField, setSortField] = useState('title');
-    const [sortOrder, setSortOrder] = useState('asc');
+    const [sortField, setSortField] = useState('submittedAt'); // Default sort by submission date
+    const [sortOrder, setSortOrder] = useState('desc'); // Default descending (newest first)
 
-  
+    // Handle resolving an issue
     const handleResolve = (issueId) => {
         setIssueList((prevIssues) =>
             prevIssues.map((issue) =>
                 issueId === issue.id
-                    ? { ...issue, status: 'Resolved', Issue_status: 'Resolved' }
+                    ? { ...issue, status: 'Resolved' }
                     : issue
             )
         );
         console.log(`Issue with ID: ${issueId} has been resolved`);
+        // TODO: Add API call to update status in backend
+        // fetch(`/api/issues/${issueId}`, {
+        //   method: 'PATCH',
+        //   body: JSON.stringify({ status: 'Resolved' }),
+        //   headers: { 'Content-Type': 'application/json' }
+        // });
     };
 
-   
+    // Handle sorting
     const handleSort = (field) => {
         const newSortOrder = sortField === field && sortOrder === 'asc' ? 'desc' : 'asc';
         setSortField(field);
@@ -37,7 +42,7 @@ const LecIssueCard = ({ issues }) => {
         );
     };
 
-    
+    // Filter issues by status
     const filteredIssues = issueList.filter((issue) => {
         if (filterStatus === 'All') return true;
         return issue.status === filterStatus;
@@ -45,7 +50,6 @@ const LecIssueCard = ({ issues }) => {
 
     return (
         <div className="issue-card-container">
-            
             <div className="filter-section">
                 <label>Filter by Status:</label>
                 <select
@@ -59,13 +63,9 @@ const LecIssueCard = ({ issues }) => {
                 </select>
             </div>
 
-            
             <table className="Issue-card-table">
                 <thead>
                     <tr>
-                        <th onClick={() => handleSort('title')}>
-                            Title {sortField === 'title' && (sortOrder === 'asc' ? '↑' : '↓')}
-                        </th>
                         <th onClick={() => handleSort('student')}>
                             Student {sortField === 'student' && (sortOrder === 'asc' ? '↑' : '↓')}
                         </th>
@@ -78,12 +78,6 @@ const LecIssueCard = ({ issues }) => {
                         <th onClick={() => handleSort('submittedAt')}>
                             Submitted At {sortField === 'submittedAt' && (sortOrder === 'asc' ? '↑' : '↓')}
                         </th>
-                        <th onClick={() => handleSort('category')}>
-                            Category {sortField === 'category' && (sortOrder === 'asc' ? '↑' : '↓')}
-                        </th>
-                        <th onClick={() => handleSort('priority')}>
-                            Priority {sortField === 'priority' && (sortOrder === 'asc' ? '↑' : '↓')}
-                        </th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -95,24 +89,14 @@ const LecIssueCard = ({ issues }) => {
                                 key={issue.id}
                                 className={`issue-card-row ${issue.status === 'Resolved' ? 'resolved' : ''}`}
                             >
-                                <td title={issue.title}>{issue.title || 'Untitled'}</td>
+                                <td>{issue.student || 'Unknown Student'}</td>
                                 <td>
-                                    <strong>Student:</strong> {issue.student || 'Student Name'}
-                                </td>
-                                <td>
-                                    <strong>Status:</strong>
                                     <span className={`status-badge ${issue.status?.toLowerCase()}`}>
-                                        {issue.status || 'Not set'}
+                                        {issue.status || 'Pending'}
                                     </span>
                                 </td>
-                                <td>{issue.description || 'No description provided'}</td>
+                                <td>{issue.description || 'No description'}</td>
                                 <td>{issue.submittedAt || 'Not set'}</td>
-                                <td>{issue.category || 'Not set'}</td>
-                                <td>
-                                    <span className={`priority-badge ${issue.priority?.toLowerCase()}`}>
-                                        {issue.priority || 'Not set'}
-                                    </span>
-                                </td>
                                 <td>
                                     {issue.status !== 'Resolved' ? (
                                         <button className="resolve-button" onClick={() => handleResolve(issue.id)}>
@@ -126,8 +110,8 @@ const LecIssueCard = ({ issues }) => {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan={8} className="no-issues">
-                                No issues Found
+                            <td colSpan={5} className="no-issues">
+                                No issues found
                             </td>
                         </tr>
                     )}

@@ -33,6 +33,7 @@ def api_endpoints_view(request):
     }
     return Response(endpoints)
 
+
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def submission_list(request):

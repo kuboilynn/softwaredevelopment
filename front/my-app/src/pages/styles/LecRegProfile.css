@@ -1,0 +1,126 @@
+.profile-container {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh; 
+    padding: 1rem; 
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+    margin-left: 80px;
+    width: 100%;
+    max-width: 500px; 
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    background: white;
+    transition: transform 0.2s ease; 
+}
+
+.profile-card:hover {
+    transform: translateY(-2px); 
+}
+
+.profile-image-container {
+    text-align: center;
+    margin-bottom: 1.5rem; 
+    position: relative;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #f5f5f5; 
+    transition: transform 0.3s ease; 
+}
+
+.profile-image:hover {
+    transform: scale(1.05); 
+}
+
+.image-upload {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer; 
+    font-size: 0.9rem;
+    color: #666; 
+}
+
+.profile-field {
+    margin-bottom: 1.5rem; 
+}
+
+.field-label {
+    font-weight: 600; 
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333; 
+}
+
+.field-input {
+    width: 100%;
+    padding: 0.75rem; /* Increased padding */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem; /* Consistent font size */
+    transition: border-color 0.2s ease; /* Added transition */
+}
+
+.field-input:focus {
+    outline: none; /* Remove default outline */
+    border-color: #007bff; /* Highlight on focus */
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.2); /* Added focus ring */
+}
+
+.field-value {
+    margin: 0;
+    color: #444; /* Added color */
+    line-height: 1.5; /* Improved readability */
+}
+
+.edit-button {
+    width: 100%;
+    padding: 0.75rem; /* Increased padding */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-weight: 500; /* Added weight */
+    transition: all 0.2s ease; /* Smooth transitions */
+}
+
+.edit-button.edit {
+    background-color: #007bff;
+}
+
+.edit-button.save {
+    background-color: #28a745;
+}
+
+.edit-button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px); /* Subtle lift */
+}
+
+.edit-button:active {
+    transform: translateY(0); /* Reset on click */
+}
+
+/* Added media query for responsiveness */
+@media (max-width: 768px) {
+    .profile-card {
+        margin-left: 0;
+        margin-top: 20px;
+        padding: 1.5rem;
+    }
+    
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+}

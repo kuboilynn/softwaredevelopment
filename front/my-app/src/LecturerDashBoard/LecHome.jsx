@@ -1,9 +1,9 @@
 import React from "react";
-import '../pages/styles/Home.css';
+import '../pages/styles/LegHome.css';
 import image1 from '../assets/images/image1.png';
 
 
-const Home=()=>{
+const LecHome=()=>{
     
     return(
         <div className="home">
@@ -18,4 +18,4 @@ const Home=()=>{
         </div>
     );
 };
-export default Home;
+export default LecHome;

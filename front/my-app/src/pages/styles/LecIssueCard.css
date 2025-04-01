@@ -1,11 +1,11 @@
 .issue-card-container{
-    width: calc(100% - 200px);
+    width: calc(100% - 150px);
     padding: 1rem;
     background: #f9f9f9;
-    margin-top: 175px;
+    margin-top: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-left: 100px;
+    margin-left: 70px;
     overflow: auto;
 }
 
@@ -23,10 +23,11 @@
 
 .Issue-card-table{
     width: 100%;
+    height: 100vh;
     border-collapse: collapse;
     margin: 20px 0;
     background-color: white;
-    margin-top: 100px;
+    margin-top: 50px;
     overflow: hidden;
     padding: 15px;
     border: 1px solid #ccc;

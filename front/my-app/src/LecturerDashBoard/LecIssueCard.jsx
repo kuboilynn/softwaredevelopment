@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import '../pages/styles/IssueCard.css';
+import '../pages/styles/LecIssueCard.css';
 
-const IssueCard = ({ issues }) => {
+const LecIssueCard = ({ issues }) => {
     
     const [issueList, setIssueList] = useState(issues || []);
     const [filterStatus, setFilterStatus] = useState('All');
@@ -137,4 +137,4 @@ const IssueCard = ({ issues }) => {
     );
 };
 
-export default IssueCard;
+export default LecIssueCard;

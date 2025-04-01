@@ -1,7 +1,15 @@
-.body{
-  padding: 0;
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
 }
+.Dashboard-main{
+  display: flex;
+    min-height: 100vh;
+}
+
+
 .dashhead{
   background-color: rgba(86, 75, 241, 0.699);
   height: 60px;
@@ -15,8 +23,15 @@
   top:0;
   display: flex;
   position: fixed;
-  backdrop-filter: blur(10px);
+  
+}
 
+.content{
+  flex: 1;
+  margin-left: 0;
+  margin-top: 100px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
 }
 
 .menu-bars{
@@ -29,7 +44,7 @@
   justify-content: center;
   position: absolute;
   left:2;
-  backdrop-filter: blur(10px);
+ 
 
 
 }

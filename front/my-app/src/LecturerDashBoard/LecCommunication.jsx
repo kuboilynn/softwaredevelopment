@@ -1,7 +1,7 @@
 import React, {useState}from "react";
-import '../pages/styles/Communication.css';
+import '../pages/styles/LecCommunication.css';
 
-const Communication=()=>{
+const LecCommunication=()=>{
     const [message, setMessage] = useState("");
     const[student,setStudent] = useState("all");
     const[statusMessage, setStatusMessage] = useState("");
@@ -42,4 +42,4 @@ const Communication=()=>{
         </div>
     );
 };
-export default Communication;
+export default LecCommunication;

@@ -21,7 +21,7 @@ function LecturerRegister(){
       setShowError(true);
     } else{
       setShowError(false);
-      navigate("/LecturerDashboard/Home")
+      navigate("/LecturerDashBoard/LecHome")
     }
     
   }

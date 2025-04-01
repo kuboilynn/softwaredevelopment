@@ -8,7 +8,6 @@ const RegProfile = () => {
         id: '',
         email: '',
         program: '',
-        office: '',
         profilePicture: ''
     });
     const handleInputChange = (e) =>{
@@ -38,7 +37,7 @@ const RegProfile = () => {
         <div className="profile-container">
             <div className="profile-card">
                 <div className="profile-image-container">
-                    <img src={profile.profilePicture || 'https://via.placeholder.com/150'} // Placeholder if no image 
+                    <img src={profile.profilePicture || 'https://via.placeholder.com/150'} 
                     alt="Profile" 
                     className="profile-image"
                     />
@@ -100,21 +99,7 @@ const RegProfile = () => {
                         <p className="field-value">{profile.email || 'Not set'} </p>
                     )}
 
-                    <div className="profile-field">
-                        <label className="field-label">Program:</label>
-                        {isEditing ? (
-                            <input
-                            type="text"
-                            name="program"
-                            value={profile.program}
-                            onChange={handleInputChange}
-                            className="field-input"
-                            placeholder="Enter your program"
-                            />
-                        ):(
-                            <p className="field-value">{profile.program || 'Not set'} </p>
-                            )}
-                    </div>
+                
                     <div className="profile-field">
                         <label className="field-label">Office:</label>
                         {isEditing ?(

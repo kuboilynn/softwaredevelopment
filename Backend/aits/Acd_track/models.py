@@ -3,10 +3,12 @@ from django.contrib.auth.models import User
 
     
 class Submission(models.Model):
+    STATUS = (("pending", "Pending"), ("approved", "Approved"), ("rejected", "Rejected"))
     student = models.ForeignKey(User, on_delete=models.CASCADE)
-    submission_date = models.DateTimeField(auto_now_add=True)
     file = models.FileField(upload_to='submissions/')
-    score = models.PositiveIntegerField(blank=True, null=True)
+    description = models.TextField()
+    status = models.BooleanField(default="pending")
+    submission_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.student}'s submission for {self.student.get_full_name()}"

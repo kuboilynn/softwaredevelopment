@@ -113,14 +113,17 @@ WSGI_APPLICATION = 'aits.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'mukisamark$atis',
         'USER': 'postgres',
         'PASSWORD': 'mark',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'HOST':'127.0.0.1',
+        'PORT':'5432',
     }
 }
 
@@ -155,6 +158,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+#mark@2020??
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/

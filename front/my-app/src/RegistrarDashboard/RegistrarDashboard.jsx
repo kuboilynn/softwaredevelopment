@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
-import { FaBars, FaHome, FaFlag, FaUser, FaFileAlt, FaSignOutAlt } from 'react-icons/fa';
+import { FaBars, FaHome, FaFlag, FaUser, FaFileAlt } from 'react-icons/fa';
 import { useState } from 'react';
 import './RegistrarDashBoard.css';
 
@@ -22,25 +22,25 @@ function RegistrarDashboard() {
           <li className="sidebar-item">
             <Link to="/RegistrarDashboard/RegHome" className="sidebar-link">
               <FaHome className="icon" />
-              <span>Home</span>
+              <span>RegHome</span>
             </Link>
           </li>
           <li className="sidebar-item">
             <Link to="/RegistrarDashboard/RegIssue" className="sidebar-link">
               <FaFlag className="icon" />
-              <span>Issues</span>
+              <span>RegIssue</span>
             </Link>
           </li>
           <li className="sidebar-item">
             <Link to="/RegistrarDashboard/RegFileIssue" className="sidebar-link">
               <FaFileAlt className="icon" />
-              <span>File Issue</span>
+              <span>RegFileIssue</span>
             </Link>
           </li>
           <li className="sidebar-item">
             <Link to="/RegistrarDashboard/RegProfile" className="sidebar-link">
               <FaUser className="icon" />
-              <span>Profile</span>
+              <span>RegProfile</span>
             </Link>
           </li>
         </ul>

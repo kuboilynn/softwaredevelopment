@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import '../pages/styles/LecRegProfile.css';
 
-const LecProfile = () => {
+const RegProfile = () => {
     const [isEditing, setIsEditing] = useState(true);
     const [profile, setProfile] = useState({
         name: '',
@@ -142,4 +142,4 @@ const LecProfile = () => {
     );
 };
 
-export default LecProfile;
+export default RegProfile;

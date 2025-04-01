@@ -27,12 +27,6 @@ import RegIssue from './RegistrarDashboard/RegIssue.jsx';
 import RegFileIssue from './RegistrarDashboard/RegFileIssue.jsx';
 import RegProfile from './RegistrarDashboard/RegProfile.jsx';
 
-
-
-import Home from './RegistrarDashboard/Home.jsx';
-import Issues from './RegistrarDashboard/Issues.jsx';
-import ProfileRegistrar from './RegistrarDashboard/ProfileRegistrar.jsx';
-import RegistrarContact from './RegistrarDashboard/RegistrarContact.jsx';
 import RegisterandLogin from './pages/RegisterandLogin.jsx';
 
 const root =ReactDOM.createRoot(document.getElementById('root'));root.render(
@@ -43,11 +37,11 @@ const root =ReactDOM.createRoot(document.getElementById('root'));root.render(
       <Route path="/Register" element={<Register/>}/>
       <Route path="/Login" element={<Login/>}/>
       <Route path="/StudentRegister" element={<StudentRegister/>}/>
-      <Route path="/RegistrarDashboard/Home" element={<Home/>}/>
-      <Route path="/RegistrarDashboard/Issues" element={<Issues/>}/>
-      <Route path="/RegistrarDashboard/Profile" element={<ProfileRegistrar/>}/>
-      <Route path="/RegistrarDashboard/RegistrarContact" element={<RegistrarContact/>}/>
-      <Route path="/LecturerDashBoard/*" element={<Dashboard/>}/>
+      
+     
+      
+      
+      
       <Route path="/LecturerRegister" element={<LecturerRegister/>}/>
       <Route path="/RegistrarRegister" element={<RegistrarRegister/>}/>
       <Route path="/StudentHome" element={<StudentHome/>}/>

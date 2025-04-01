@@ -38,7 +38,7 @@ function StudentRegister(){
       type="text" 
       value={name}
       onChange={handleNameChange}
-      placeholder="Name"
+      placeholder="username"
       className="Input-field"
       />
       {showError && <span className="error">*Required</span>}
@@ -46,15 +46,15 @@ function StudentRegister(){
  
 
       <div className="Input-group">
+      <Input type="text" placeholder="Firstname" className="Input-field"/>
+      </div>
+
+      <div className="Input-group">
+      <Input type="text" placeholder="Lastname" className="Input-field"/>
+      </div>
+
+      <div className="Input-group">
       <Input type="email" placeholder="Email" className="Input-field"/>
-      </div>
-
-      <div className="Input-group">
-      <Input type="text" placeholder="Reg No" className="Input-field"/>
-      </div>
-
-      <div className="Input-group">
-      <Input type="text" placeholder="Student No" className="Input-field"/>
       </div>
 
       <div className="Input-group">

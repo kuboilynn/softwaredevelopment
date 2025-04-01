@@ -1,0 +1,13 @@
+.textarea{
+  display: flex;
+  border-radius: 5px;
+  justify-items: center;
+  left:50px;
+  width:500px;
+  height: 400px;
+}
+.link{
+  text-decoration: none;
+  color: #245efc;
+  font-size: 18px;
+}

@@ -20,21 +20,42 @@ import Profile from './pages/Profile';
 import LecturerRegister from './pages/LecturerRegister.jsx';
 import RegistrarRegister from './pages/RegistrarRegister.jsx';
 
+
 import RegistrarDashboard from './RegistrarDashboard/RegistrarDashboard.jsx';
 import RegHome from './RegistrarDashboard/RegHome.jsx';
 import RegIssue from './RegistrarDashboard/RegIssue.jsx';
 import RegFileIssue from './RegistrarDashboard/RegFileIssue.jsx';
 import RegProfile from './RegistrarDashboard/RegProfile.jsx';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+
+
+import Home from './RegistrarDashboard/Home.jsx';
+import Issues from './RegistrarDashboard/Issues.jsx';
+import ProfileRegistrar from './RegistrarDashboard/ProfileRegistrar.jsx';
+import RegistrarContact from './RegistrarDashboard/RegistrarContact.jsx';
+import RegisterandLogin from './pages/RegisterandLogin.jsx';
+
+const root =ReactDOM.createRoot(document.getElementById('root'));root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/Register" element={<Register />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/StudentRegister" element={<StudentRegister />} />
+    <Routes>
+      <Route path="/" element={<App/>}/>
+      <Route path="/Register" element={<Register/>}/>
+      <Route path="/Login" element={<Login/>}/>
+      <Route path="/StudentRegister" element={<StudentRegister/>}/>
+      <Route path="/RegistrarDashboard/Home" element={<Home/>}/>
+      <Route path="/RegistrarDashboard/Issues" element={<Issues/>}/>
+      <Route path="/RegistrarDashboard/Profile" element={<ProfileRegistrar/>}/>
+      <Route path="/RegistrarDashboard/RegistrarContact" element={<RegistrarContact/>}/>
+      <Route path="/LecturerDashBoard/*" element={<Dashboard/>}/>
+      <Route path="/LecturerRegister" element={<LecturerRegister/>}/>
+      <Route path="/RegistrarRegister" element={<RegistrarRegister/>}/>
+      <Route path="/StudentHome" element={<StudentHome/>}/>
+      <Route path="/StudentIssues" element={<StudentIssues/>}/>
+      <Route path="/FileIssue" element={<FileIssue/>}/>
+      <Route path="/Profile" element={<Profile/>}/>
+      <Route path="/RegisterandLogin" element={<RegisterandLogin/>}/>
+
 
         {/* Lecturer Dashboard */}
         <Route path="/LecturerDashBoard" element={<LecDashboard />}>

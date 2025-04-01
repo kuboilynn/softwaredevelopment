@@ -1,0 +1,68 @@
+.content{
+  display: flex;
+  flex-grow:1;
+  margin-left:250px;
+  padding:20px;
+  transition: margin-left 0.3 ease-in-out;
+  transition: 650ms;
+  flex-direction: column;
+  align-content: center;
+  border: 1px solid rgb(172, 251, 253);
+  padding: 20px;
+  width:400px;
+  height: 800px;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.466);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.content-file{
+  display: flex;
+  flex-grow:1;
+  margin-left:250px;
+  padding:20px;
+  transition: margin-left 0.3 ease-in-out;
+  transition: 650ms;
+  flex-direction: column;
+  border: 1px solid rgb(172, 251, 253);
+  background-color: rgba(255, 255, 255, 0.466);
+  border-radius: 5px;
+  width: 350px;
+  height: 800px;
+  text-align: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+}
+
+
+.closed-dashboard+.content{
+  margin-left: 0;
+}
+
+.content-home{
+  display: flex;
+  flex-grow:1;
+ 
+  padding:20px;
+  transition: margin-left 0.3 ease-in-out;
+  background-image: url("../../assets/study-group-african-people.jpg");
+  margin-top: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.sidebar{
+  background-color: white;
+  color:black;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  
+  position: fixed;
+  right:5px;
+  width:400px;
+  height: 100%;
+  top: 70px;;
+}

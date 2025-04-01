@@ -1,20 +1,21 @@
 import DashboardStudent from "./DashboardStudent"
-import './styles/StudentHome.css';
+import './styles/student.css';
+
 
 
 function StudentHome(){
+   
+ 
+
   return(<div>
           <DashboardStudent/>
           <div className="content-home">
-            <div id="boxes">
-              <div>No more stress
-               
-              </div>
-              <div>2</div>
-              <div>3</div>
+            <div>
+            <p>Welcome to easy problem solving</p>
             </div>
+           
             
             </div>
   </div>)
-}
+};
 export default StudentHome

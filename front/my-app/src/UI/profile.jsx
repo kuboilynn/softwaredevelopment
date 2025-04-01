@@ -5,7 +5,9 @@ const ProfilePic=styled.img`
   height:200px;
   padding-bottom:50px;
   padding-top:20px;
-  border-radius:200px;
+ 
+
+ 
 `;
 
 export default ProfilePic;

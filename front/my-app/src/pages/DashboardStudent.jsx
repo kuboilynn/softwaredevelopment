@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import {FaFlag} from "react-icons/fa"
 import { FaUser } from "react-icons/fa";
-import { FaFileAlt } from "react-icons/fa";
+import { FaFileAlt,FaSignOutAlt } from "react-icons/fa";
 
 
 function DashboardStudent(){
@@ -42,6 +42,11 @@ function DashboardStudent(){
           <Link to="/Profile">
             <FaUser/> Profile
           </Link>
+        </li>
+        <li>
+        <Link to="/RegisterandLogin">
+     <FaSignOutAlt style={{color:"red"}} /> Logout
+     </Link>
         </li>
       </ul>
     </nav>

@@ -11,7 +11,7 @@ function StudentHome(){
           <DashboardStudent/>
           <div className="content-home">
             <div>
-            <p>Welcome to easy problem solving</p>
+            <p className="entrance"> Welcome to easy problem solving</p>
             </div>
            
             

@@ -24,8 +24,9 @@ function Profile(){
   return(<div>
           <DashboardStudent/>
           <div className="content">
-           <p>Profile</p>
-           <ProfilePic src={profileimage} alt="profile picture"/>
+            <div className="content-profile">
+            <p>Profile</p>
+            <ProfilePic src={profileimage} alt="profile picture"/>
            <input type="file"
            accept="image/*"
            onChange={handleimage}
@@ -40,6 +41,8 @@ function Profile(){
             <label>Email</label>
             <Input placeholder="123@gmail.com"></Input>
             <Button>Edit </Button>
+            </div>
+           
           </div>
   </div>)
 }

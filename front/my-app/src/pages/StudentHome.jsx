@@ -3,6 +3,8 @@ import './styles/student.css';
 
 
 
+
+
 function StudentHome(){
    
  
@@ -11,7 +13,7 @@ function StudentHome(){
           <DashboardStudent/>
           <div className="content-home">
             <div>
-            <p>Welcome to easy problem solving</p>
+            welcome to easier problem solving
             </div>
            
             

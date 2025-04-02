@@ -75,8 +75,7 @@ def notification_list(request):
     if request.method == 'GET':
         notifications = Notification.objects.all()
         serializer = NotificationSerializer(notifications, many=True)
-        return Response(serializer.data)
-    
+        return Response(serializer.data) 
     
     elif request.method == 'POST':
         serializer = NotificationSerializer(data=request.data)
@@ -84,6 +83,7 @@ def notification_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def notification_detail(request, pk):

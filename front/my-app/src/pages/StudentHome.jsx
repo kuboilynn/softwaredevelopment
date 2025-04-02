@@ -16,10 +16,10 @@ function StudentHome(){
             welcome to easier problem solving
  Lynn
             </div>
-            <p className="message2">
+            <div className="message2">
             Looking for a system to make issue filing and follow up easier look no further.
             This is a system developed by fellow students that understand the dillema
-            </p>
+            </div>
             </div>
             
   </div>)

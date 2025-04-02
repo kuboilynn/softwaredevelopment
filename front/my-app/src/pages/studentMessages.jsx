@@ -15,34 +15,34 @@ function StudentMessages() {
 
   
   const [selectedMessage, setSelectedMessage] = useState(null);
-
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
   
   useEffect(() => {
-    
-    const newMessages = [
-      {
-        id: 2,
-        sender: "Admin",
-        text: "New update: Check out your latest messages!",
-        timestamp: new Date().toLocaleString(),
-      },
-      {
-        id: 3,
-        sender: "Support",
-        text: "Your recent request has been processed successfully.",
-        timestamp: new Date().toLocaleString(),
-      }
-    ];
+   
+    fetch("https://mukisamark.pythonanywhere.com/notifications")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch messages");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setMessages(data); 
+        setLoading(false); 
+      })
+      .catch((err) => {
+        setError(err.message); 
+        setLoading(false); 
+      });
+  }, []);
 
-    
-    setMessages((prevMessages) => [...prevMessages, ...newMessages]);
-  }, []); 
-
-  
+ 
   const handleMessageClick = (message) => {
     setSelectedMessage(message);
   };
 
+ 
   return (
     <div>
       <DashboardStudent />
@@ -50,6 +50,20 @@ function StudentMessages() {
         
         <div className="notifications">
           <ul className="notificationslist">
+          {loading && (
+              <li className="noty">
+                <div>
+                  <strong>Loading messages...</strong>
+                </div>
+              </li>
+            )}
+            {error && (
+              <li className="noty error">
+                <div>
+                  <strong>Error: {error}</strong>
+                </div>
+              </li>
+            )}
             {messages.map((message) => (
               <li className="noty" key={message.id} onClick={() => handleMessageClick(message)}>
                 <div>

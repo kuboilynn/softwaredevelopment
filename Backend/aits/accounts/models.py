@@ -15,9 +15,11 @@ class UserProfile(models.Model):
         ("Others", "Others"),
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='cashier')
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='student')
+    program = models.CharField(max_length=300, default='', blank=True, null=True)
+    session = models.CharField(max_length=300, default='', blank=True, null=True)
     gender = models.TextField(max_length=10, choices=GENDER_TYPES, default="Male")
-    phone_number = models.CharField(max_length=15, blank=True, null=True)
+    id_number = models.CharField(max_length=15, blank=True, null=True)
     department = models.CharField(max_length=100, blank=True, null=True)
     image = models.ImageField(upload_to="profile_pics/", blank=True, null=True, default="profile_pics/default.png")
 

@@ -23,13 +23,9 @@ def api_endpoints_view(request):
         "profile": "/accounts/profile",
         "request password reset": "/accounts/request-password-reset",
         "reset password": "/accounts/reset-password/<str:uidb64>/<str:token>",
-        "list lecturers": "/accounts/lecturers",
-        "list students": "/accounts/students",
-        "list registrars": "/accounts/registrars",
-        "submissions": "/submissions",
-        "submission detail": "/submissions/<int:pk>",
-        "notifications": "/notifications",
-        "notification detail": "/notifications/<int:pk>"
+"list lecturers": "/accounts/lecturers",
+"list students": "/accounts/students",
+"list registrars": "/accounts/registrars"
     }
     return Response(endpoints)
 

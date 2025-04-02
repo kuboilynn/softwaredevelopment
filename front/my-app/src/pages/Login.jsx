@@ -4,12 +4,17 @@ import '../index.css';
 import makerere from "../assets/makererelogo.png"
 import Img from "../UI/Img"
 import './styles/Login.css';
+import { useNavigate } from "react-router-dom"
 
 
 function Login() {
+  const navigate=useNavigate
   const[username, setUsername]=useState("");
   const [password, setPassword]= useState("");
   const[showError, setShowError]=useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
 
   function handleUsernameChange(event){
     setUsername(event.target.value);
@@ -29,6 +34,39 @@ function Login() {
 
     }
   }
+
+  const loginData = {
+    username,
+    password,
+  };
+
+ 
+  fetch("https://mukisamark.pythonanywhere.com/accounts/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(loginData),
+  })
+    .then((response) => response.json()) 
+    .then((data) => {
+      setLoading(false); 
+      if (data.success) {
+       
+        console.log("Login successful:", data);
+
+       navigate("/StudentHome")
+      } else {
+       
+        setError(data.message || "Login failed. Please try again.");
+      }
+    })
+    .catch((error) => {
+      setLoading(false);
+      setError("An error occurred during login. Please try again.");
+      console.error("Error during login:", error);
+    });
+
 
   return (
     <div className="Login">
@@ -57,9 +95,12 @@ function Login() {
         {showError && <span className="error">password required</span>}
       </div>
       <button className="login-btn" 
-            onClick={handleLogin}>
+            onClick={handleLogin}
+            disabled={loading}>
+              
         Login
       </button>
+      
 
       <p className="signup-link">Don't have an account? <a href="/Register">Signup</a></p> 
 
@@ -68,9 +109,12 @@ function Login() {
     Forgot Password?
   </a>
 </p>
-
+<div >
+        {loading && <div className="loading-message">Logging in...</div>}
+        {error && !loading && <div className="error-message">{error}</div>}
+      </div>
     </div>
   );
-}
+};
 
 export default Login

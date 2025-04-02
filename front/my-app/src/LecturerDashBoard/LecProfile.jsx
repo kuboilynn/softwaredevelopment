@@ -8,7 +8,6 @@ const LecProfile = () => {
         id: '',
         email: '',
         program: '',
-        office: '',
         profilePicture: ''
     });
     const handleInputChange = (e) =>{
@@ -38,7 +37,7 @@ const LecProfile = () => {
         <div className="profile-container">
             <div className="profile-card">
                 <div className="profile-image-container">
-                    <img src={profile.profilePicture || 'https://via.placeholder.com/150'} // Placeholder if no image 
+                    <img src={profile.profilePicture || 'https://via.placeholder.com/150'}
                     alt="Profile" 
                     className="profile-image"
                     />
@@ -115,21 +114,7 @@ const LecProfile = () => {
                             <p className="field-value">{profile.program || 'Not set'} </p>
                             )}
                     </div>
-                    <div className="profile-field">
-                        <label className="field-label">Office:</label>
-                        {isEditing ?(
-                            <input
-                            type="text"
-                            name="office"
-                            value={profile.office}
-                            onChange={handleInputChange}
-                            className="field-input"
-                            placeholder="Enter your office location"
-                            />
-                        ):(
-                            <p className="field-value">{profile.office || 'Not set'}</p>
-                            )}
-                    </div>
+
                     <button
                     onClick={toggleEdit}
                     className={`edit-button ${isEditing ? 'save' : 'edit'}`}

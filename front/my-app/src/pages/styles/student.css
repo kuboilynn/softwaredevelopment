@@ -5,6 +5,7 @@
   padding:20px;
   transition: margin-left 0.3 ease-in-out;
   transition: 650ms;
+  flex-direction: column;
 }
 .content-file{
   display: flex;
@@ -20,6 +21,15 @@
   align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   margin-top: 100px;
+
+}
+.issuebox{
+  width:280px;
+  height:100px;
+  border-radius:5px;
+  border: none;
+  display:flex;
+  justify-self: start;
 
 }
 
@@ -40,6 +50,30 @@
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
+}
+
+.home-message{
+  font-size: 3rem;
+    font-weight: bold;
+    animation: fadeIn 2s ease-in-out infinite alternate;
+    color: white;
+    margin: 0;
+    z-index: 10;
+    display: flex;
+    margin-left: 200px;
+    margin-bottom: 10px;
+}
+.message2{
+  font-size: 1rem;
+    font-weight: bold;
+    animation: fadeIn 2s ease-in-out infinite alternate;
+    color: white;
+    margin: 0;
+    z-index: 10;
+    display: flex;
+    margin-left: 200px;
+    margin-top: 10px;
+    
 }
 .sidebar{
   display: flex;

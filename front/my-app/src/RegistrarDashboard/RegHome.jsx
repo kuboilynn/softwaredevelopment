@@ -1,12 +1,15 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
+import { FaBell } from 'react-icons/fa';
+import './RegHome.css';
 
 function RegHome() {
-  const navigate = useNavigate(); // useNavigate hook to navigate programmatically
+  const navigate = useNavigate();
+  const { lecturerIssues } = useOutletContext(); // Access issues from context
+  const pendingIssues = lecturerIssues.filter(issue => issue.status === "Pending").length;
 
-  // Function to navigate to the Registrar Dashboard when the button is clicked
   function GotoDashboard() {
-    navigate("/RegistrarDashboard/Dashboard");  // This navigates to the Registrar Dashboard
+    navigate("/RegistrarDashboard/Dashboard");
   }
 
   return (
@@ -15,7 +18,6 @@ function RegHome() {
         <div className="banner-overlay">
           <h1>Welcome, Registrar!</h1>
           <p>Stay updated with lecturer submissions and manage your tasks effortlessly.</p>
-
           <button className="Dashboard" onClick={GotoDashboard}>
             <i className="fas fa-sign-in-alt"></i> Go to Registrar Dashboard
           </button>
@@ -31,6 +33,12 @@ function RegHome() {
           <div className="card">
             <h3>Notification</h3>
             <p>New issue reported</p>
+            <div className="notification">
+              <FaBell className="bell-icon" />
+              {pendingIssues > 0 && (
+                <span className="notification-badge">{pendingIssues}</span>
+              )}
+            </div>
           </div>
         </div>
       </div>

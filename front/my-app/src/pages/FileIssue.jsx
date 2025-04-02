@@ -8,17 +8,14 @@ import { useState } from "react";
 function FileIssue(){
   
    
-    const [isRadioChecked, setIsRadioChecked] = useState("");
-    const handleRadioChange = (event) => {
-      setIsRadioChecked(event.target.value);
-  };
+    
   
 
 
     const [data,setdata]=useState({
       courseUnit:"",
       lecturer:"",
-      issueType:"",
+      issue:"",
       timeFiled: new Date().toLocaleString(),
       resolved: false,
 
@@ -35,7 +32,7 @@ function FileIssue(){
       let newErrors={};
       if(!data.courseUnit.trim()) newErrors.courseUnit="*field Required"
       if(!data.lecturer.trim()) newErrors.lecturer="*field Required"
-      if(!data.issueType.trim()) newErrors.issueType="*field Required"
+      if(!data.issue.trim()) newErrors.issue="*field Required"
 
       if (Object.keys(newErrors).length>0){setErrors(newErrors);
         return;
@@ -48,7 +45,8 @@ function FileIssue(){
           <DashboardStudent/>
           <form className="content-file"
           onSubmit={handlesubmit}> 
-            <div>
+
+          <div>
             <label>
             Time of study
             <Select >
@@ -56,9 +54,9 @@ function FileIssue(){
               <option>Evening</option>
             </Select>
               </label>
-          
-            
             </div><br/>
+
+
             <div>
             <label>Course Unit</label>
             <Input type=""
@@ -67,74 +65,26 @@ function FileIssue(){
             placeholder="Enter course Unit" />
               {errors.courseUnit && <p style={{color :"red",fontSize:10,}}>{errors.courseUnit}</p>}
             </div>
+
             <div>
             <label>Lecturer</label>
-            <Input type=""
+            <Input type="email"
             name="lecturer"
             onChange={handleChange}
-            placeholder="Enter Lecturer"/>
+            placeholder="Enter Lecturer email"/>
             {errors.lecturer && <p style={{color :"red",fontSize:10,}}>{errors.lecturer}</p>}  
             </div><br/>
             <div>
-            <div>
-            <label>Type of Issue</label><br/>
-            <div >
-            <label>
-            <input type="radio"
-             value="course work" 
-             name="choice" 
-             checked={isRadioChecked==="course work"}
-             onChange={handleRadioChange}></input>
-              course work</label>
-            
-            
-            <label>
-            <input type="radio" 
-            value="final exam" 
-            name="choice"
-            checked={isRadioChecked==="final exam"}
-            onChange={handleRadioChange}></input>
-              final exam</label>
-
-              <label>
-            <input type="radio"
-             value="both" 
-             name="choice"
-             checked={isRadioChecked==="both"}
-             onChange={handleRadioChange}>
-              
-             </input>
-              both</label>
-            
-            <label>
-            <input type="radio"
-            value="other" 
-            name="choice" 
-            checked={isRadioChecked==="other"}
-          onChange={handleRadioChange}
-          ></input>
-              other</label>
-             
-            </div><br/>
-            </div>
-            </div>
-            {isRadioChecked==="other" && (
-        <div>
-          
           <input type="text" 
+          name="issue"
           id="textInput"
-          style={{width:200,height:100}} 
-          placeholder="enter other information"/>
+          className="issuebox"
+          placeholder="enter issue"/>
+          {errors.issue && <p style={{color :"red",fontSize:10,}}>{errors.issue}</p>}
         </div>
-      )}
            
             <Button>Submit</Button>
-            
-
-          </form>
-
-            
-         
+          </form> 
     </div>)}
   
 export default FileIssue

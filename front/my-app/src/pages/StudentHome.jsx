@@ -3,6 +3,8 @@ import './styles/student.css';
 
 
 
+
+
 function StudentHome(){
    
  
@@ -10,12 +12,16 @@ function StudentHome(){
   return(<div>
           <DashboardStudent/>
           <div className="content-home">
-            <div>
-            <p>Welcome to easy problem solving</p>
+            <div className="home-message">
+            welcome to easier problem solving
+ Lynn
             </div>
-           
+            <p className="message2">
+            Looking for a system to make issue filing and follow up easier look no further.
+            This is a system developed by fellow students that understand the dillema
+            </p>
+            </div>
             
-            </div>
   </div>)
 };
 export default StudentHome

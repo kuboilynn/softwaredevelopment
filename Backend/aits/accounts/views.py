@@ -77,7 +77,7 @@ def register(request):
     user.last_name = last_name
     user.save()
 
-    userProfile = UserProfile.objects.create(user=user, phone_number=phone_number, gender = gender, role = user_type)
+    userProfile = UserProfile.objects.create(user=user, phone_number=id_number, gender = gender, role = user_type)
     if 'image' in request.FILES:
         image = request.FILES['image']
         userProfile.image = image

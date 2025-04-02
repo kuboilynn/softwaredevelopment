@@ -198,4 +198,6 @@ def reset_password(request, uidb64, token):
 @api_view(["GET"])
 def user_profile(request):
     user = request.user
-    return Response({"username": user.username, "email": user.email})
+    data = UserProfile.objects.get(user=user)
+    serializer = UserProfileSerialiser(data)
+    return Response(serializer.data, status=status.HTTP_200_OK)

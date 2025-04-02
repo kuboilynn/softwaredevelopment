@@ -23,6 +23,4 @@ class UserProfileSerialiser(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         fields = "__all__"
-
-        
-        depth = 1
+        #depth = 1

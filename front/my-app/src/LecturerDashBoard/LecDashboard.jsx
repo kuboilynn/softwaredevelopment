@@ -1,60 +1,45 @@
 import { Link, Outlet } from 'react-router-dom';
 import { FaBars, FaHome, FaFlag, FaUser, FaFileAlt } from 'react-icons/fa';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'; 
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './LecturerDashBoard.css';
 
 function LecDashboard() {
   const [dashboard, setDashboard] = useState(false);
+  const [studentIssues, setStudentIssues] = useState([]);
 
   const toggleDashboard = () => setDashboard(!dashboard);
 
-  
+  useEffect(() => {
+    const fetchStudentIssues = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/api/student-issues');
+        if (!response.ok) throw new Error('Failed to fetch student issues');
+        const data = await response.json();
+        setStudentIssues(data);
+      } catch (error) {
+        console.error('Error fetching student issues:', error);
+        setStudentIssues([]);
+      }
+    };
+    fetchStudentIssues();
+  }, []);
+
   const sidebarVariants = {
-    active: {
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-      },
-    },
-    closed: {
-      x: "-100%",
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-      },
-    },
+    active: { x: 0, transition: { type: "spring", stiffness: 300, damping: 30 } },
+    closed: { x: "-100%", transition: { type: "spring", stiffness: 300, damping: 30 } },
   };
 
-  
   const mainVariants = {
-    shifted: {
-      marginLeft: "250px", 
-      transition: { ease: "easeInOut", duration: 0.3 },
-    },
-    initial: {
-      marginLeft: "0",
-      transition: { ease: "easeInOut", duration: 0.3 },
-    },
+    shifted: { marginLeft: "250px", transition: { ease: "easeInOut", duration: 0.3 } },
+    initial: { marginLeft: "0", transition: { ease: "easeInOut", duration: 0.3 } },
   };
 
- 
   const itemVariants = {
     hidden: { opacity: 0, x: -20 },
-    visible: (i) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: i * 0.1, 
-        duration: 0.3,
-      },
-    }),
+    visible: (i) => ({ opacity: 1, x: 0, transition: { delay: i * 0.1, duration: 0.3 } }),
   };
 
- 
   const titleVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -62,12 +47,7 @@ function LecDashboard() {
 
   return (
     <div className="dashboard-container">
-      <motion.header
-        className="dashhead"
-        initial="hidden"
-        animate="visible"
-        variants={titleVariants}
-      >
+      <motion.header className="dashhead" initial="hidden" animate="visible" variants={titleVariants}>
         <Link to="#" className="toggle-btn" onClick={toggleDashboard}>
           <FaBars />
         </Link>
@@ -112,7 +92,7 @@ function LecDashboard() {
         animate={dashboard ? "shifted" : "initial"}
         variants={mainVariants}
       >
-        <Outlet /> 
+        <Outlet context={{ studentIssues, setStudentIssues }} /> {/* Pass setter for updates */}
       </motion.main>
     </div>
   );

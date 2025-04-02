@@ -3,10 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import '../pages/styles/AllRegister.css';
 import { motion } from "framer-motion";
+import { registerUser } from "../api/authApi";  // Import the registerUser function
 
 function RegisterForm() {
   const navigate = useNavigate();
-  
+  const [showErrors, setShowErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState("");
   const [formData, setFormData] = useState({
     username: "",
     firstName: "",
@@ -18,8 +21,6 @@ function RegisterForm() {
     userType: "",
     gender: ""
   });
-  
-  const [showErrors, setShowErrors] = useState({});
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -33,10 +34,10 @@ function RegisterForm() {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const errors = {};
     const requiredFields = ['username', 'firstName', 'lastName', 'email', 'password', 'idNo', 'userType', 'gender'];
-    
+
     requiredFields.forEach(field => {
       if (!formData[field]) {
         errors[field] = true;
@@ -52,18 +53,44 @@ function RegisterForm() {
       return;
     }
 
-    switch(formData.userType) {
-      case 'Student':
-        navigate("/StudentHome");
-        break;
-      case 'Lecturer':
-        navigate("/LecturerDashBoard/LecHome");
-        break;
-      case 'Registrar':
-        navigate("/RegistrarDashboard/RegHome");
-        break;
-      default:
-        console.error('Unknown user type');
+    const registrationData = {
+      username: formData.username,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      password: formData.password,
+      idNo: formData.idNo,
+      userType: formData.userType,
+      gender: formData.gender,
+    };
+
+    setLoading(true);
+
+    try {
+      const data = await registerUser(registrationData);  // Use the API call
+      setLoading(false);
+      if (data.success) {
+        // Redirect based on user type
+        switch (formData.userType) {
+          case 'Student':
+            navigate("/StudentHome");
+            break;
+          case 'Lecturer':
+            navigate("/LecturerDashBoard/LecHome");
+            break;
+          case 'Registrar':
+            navigate("/RegistrarDashboard/RegHome");
+            break;
+          default:
+            console.error('Unknown user type');
+        }
+      } else {
+        setServerError(data.message || "Registration failed. Please try again.");
+      }
+    } catch (error) {
+      setLoading(false);
+      setServerError(error.message);
+      console.error("Error during registration:", error);
     }
   };
 
@@ -71,13 +98,17 @@ function RegisterForm() {
     <div className="register-form">
       <h3><i className="fas fa-user-graduate"></i>Register</h3>
       <motion.p 
-        initial={{opacity: 0, y: -50}}
-        animate={{ opacity: 1, y: 0}}
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
         className="tagline"
       >
         Create Your Academic Profile
       </motion.p>
 
+      {/* Display server error message */}
+      {serverError && <div className="error-message">{serverError}</div>}
+
+      {/* Form Fields */}
       <div className="Input-group">
         <Input 
           type="text" 
@@ -195,8 +226,9 @@ function RegisterForm() {
       <button 
         className="signup-btn"
         onClick={handleSubmit}
+        disabled={loading}
       >
-        <i className="fas fa-user-plus"></i>Sign Up
+        {loading ? 'Registering...' : <><i className="fas fa-user-plus"></i> Sign Up</>}
       </button>
     </div>
   );

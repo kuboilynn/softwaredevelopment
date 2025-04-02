@@ -20,6 +20,7 @@ import RegIssue from './RegistrarDashboard/RegIssue.jsx';
 import RegFileIssue from './RegistrarDashboard/RegFileIssue.jsx';
 import RegProfile from './RegistrarDashboard/RegProfile.jsx';
 import RegisterandLogin from './pages/RegisterandLogin.jsx';
+import PasswordCorrect from './pages/PasswordCorrect.jsx';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -27,7 +28,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        
+
         <Route path="/" element={<App/>}/>
         <Route path="/Register" element={<RegisterForm/>}/>  
         <Route path="/Login" element={<Login/>}/>
@@ -36,6 +37,7 @@ root.render(
         <Route path="/FileIssue" element={<FileIssue/>}/>
         <Route path="/Profile" element={<Profile/>}/>
         <Route path="/RegisterandLogin" element={<RegisterandLogin/>}/>
+        <Route path='/PasswordCorrect' element={<PasswordCorrect/>}/>
         
         {/* Lecturer Dashboard */}
         <Route path="/LecturerDashBoard" element={<LecDashboard />}>

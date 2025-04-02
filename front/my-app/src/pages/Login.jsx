@@ -54,6 +54,7 @@ function Login() {
         placeholder="Password"
         className="input-field"
         />
+        {showError && <span className="error">password required</span>}
       </div>
       <button className="login-btn" 
             onClick={handleLogin}>
@@ -61,6 +62,13 @@ function Login() {
       </button>
 
       <p className="signup-link">Don't have an account? <a href="/Register">Signup</a></p> 
+
+      <p className="forgot-password-link">
+  <a href="mailto:support@yourwebsite.com?subject=Password Reset Request">
+    Forgot Password?
+  </a>
+</p>
+
     </div>
   );
 }

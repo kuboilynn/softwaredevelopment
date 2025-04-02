@@ -4,9 +4,16 @@ import Button from "../UI/Button";
 import Input from "../UI/input";
 import ProfilePic from "../UI/profile"
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function Profile(){
+  const navigate = useNavigate();
+    
+    function GotoLogin() {
+      navigate("/PasswordCorrect");
+    }
+
 
   const defaultimage="https://via.placeholder.com/150"
   const [profileimage,setprofileimage]= useState(defaultimage);
@@ -40,7 +47,7 @@ function Profile(){
             <Input placeholder="123"></Input>
             <label>Email</label>
             <Input placeholder="123@gmail.com"></Input>
-            <Button>Edit </Button>
+            <Button onClick={GotoLogin}>Edit </Button>
             </div>
            
           </div>

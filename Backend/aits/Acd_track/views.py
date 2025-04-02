@@ -77,6 +77,7 @@ def notification_list(request):
         serializer = NotificationSerializer(notifications, many=True)
         return Response(serializer.data)
     
+    
     elif request.method == 'POST':
         serializer = NotificationSerializer(data=request.data)
         if serializer.is_valid():

@@ -14,6 +14,4 @@ urlpatterns=[
     path('uploads/', views.upload_file, name='file-upload'),
     path('comments/', views.add_comment, name='comment-create'),
     path('approve-changes/<int:complaint_id>/', views.approve_changes, name='approve_changes'),
-
-
 ]

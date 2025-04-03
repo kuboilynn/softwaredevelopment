@@ -9,10 +9,10 @@ from .serializers import SubmissionsSerializer,NotificationSerializer
 from rest_framework import permissions
 from rest_framework.authtoken.models import Token
 from rest_framework.parsers import MultiPartParser, FormParser
+from django.core.mail import EmailMessage
+from django.conf import settings
 
 # Create your views here.
-
-
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
@@ -41,6 +41,7 @@ def submission_list(request):
         return Response(serializer.data)
     
     elif request.method == 'POST':
+        print(request.data)
         serializer = SubmissionsSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -59,7 +60,7 @@ def submission_detail(request, pk):
         return Response(serializer.data)
     
     elif request.method == 'PUT':
-        serializer = SubmissionsSerializer(submission, data=request.data)
+        serializer = SubmissionsSerializer(submission, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -73,7 +74,7 @@ def submission_detail(request, pk):
 @api_view(['GET', 'POST'])
 def notification_list(request):
     if request.method == 'GET':
-        notifications = Notification.objects.all()
+        notifications = Notification.objects.all().order_by('-created_at')
         serializer = NotificationSerializer(notifications, many=True)
         return Response(serializer.data)
     
@@ -105,3 +106,47 @@ def notification_detail(request, pk):
     elif request.method == 'DELETE':
         notification.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+def send_custom_email(subject, body, to_email, from_email=None, attachments=None, html=False):
+    from_email = from_email or settings.DEFAULT_FROM_EMAIL
+    if isinstance(to_email, str):
+        to_email = [to_email]
+
+    email = EmailMessage(
+        subject=subject,
+        body=body,
+        from_email=from_email,
+        to=to_email,
+    )
+
+    if html:
+        email.content_subtype = "html"
+
+    if attachments:
+        for attachment in attachments:
+            email.attach(*attachment)
+
+    email.send(fail_silently=False)
+
+
+@api_view(['POST'])
+def send_out_detail(request):
+    data = request.data
+    print(data)
+    if data['recipient'] == "all":
+        #process sending out emails to all students
+        pass
+    else:
+        fullNames = data['recipient'].split("-")
+        sender_id = data['sender']
+
+
+        from_email = User.objects.get(id=sender_id).email
+
+        print(fullNames)
+        to_email = User.objects.get(first_name = fullNames[0].strip(), last_name = fullNames[1].strip()).email
+        subject = "NOTIFICATION"
+        body = data['message'] 
+        send_custom_email(subject, body, to_email,from_email=from_email, attachments=None, html=True)
+    return Response({"message":"Email Send Successfully!"})

@@ -21,24 +21,29 @@ import RegFileIssue from './RegistrarDashboard/RegFileIssue.jsx';
 import RegProfile from './RegistrarDashboard/RegProfile.jsx';
 import RegisterandLogin from './pages/RegisterandLogin.jsx';
 import PasswordCorrect from './pages/PasswordCorrect.jsx';
+import ForgotPassword from './pages/ForgotPassword.jsx';
+import PasswordResetForms from './pages/PasswordResetForm.jsx';
+import ActivateAccount from './pages/ActivateAccount.jsx';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  //<React.StrictMode>
     <BrowserRouter>
       <Routes>
-
         <Route path="/" element={<App/>}/>
         <Route path="/Register" element={<RegisterForm/>}/>  
         <Route path="/Login" element={<Login/>}/>
+        <Route path="/activate/:uid/:token" element={<ActivateAccount/>}/>
+        <Route path="/forgot-password" element={<ForgotPassword/>}/>
+        <Route path="/reset-password/:slug/:token/" element={<PasswordResetForms />} />
         <Route path="/StudentHome" element={<StudentHome/>}/>
         <Route path="/studentMessages" element={<StudentMessages/>}/>
         <Route path="/FileIssue" element={<FileIssue/>}/>
         <Route path="/Profile" element={<Profile/>}/>
         <Route path="/RegisterandLogin" element={<RegisterandLogin/>}/>
         <Route path='/PasswordCorrect' element={<PasswordCorrect/>}/>
-        
         {/* Lecturer Dashboard */}
         <Route path="/LecturerDashBoard" element={<LecDashboard />}>
           <Route index element={<LecHome />} />
@@ -58,5 +63,5 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  //</React.StrictMode>
 );

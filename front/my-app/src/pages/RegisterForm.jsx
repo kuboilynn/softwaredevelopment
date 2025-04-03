@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Input from "../UI/input";
-import { registerUser } from "../api/API.jsx";
 import '../pages/styles/AllRegister.css';
 import useApiRequest from "../utils/useApiRequest.js";
 import { domain } from "../utils/domain.js";

@@ -20,7 +20,6 @@ import RegIssue from './RegistrarDashboard/RegIssue.jsx';
 import RegFileIssue from './RegistrarDashboard/RegFileIssue.jsx';
 import RegProfile from './RegistrarDashboard/RegProfile.jsx';
 import RegisterandLogin from './pages/RegisterandLogin.jsx';
-import PasswordCorrect from './pages/PasswordCorrect.jsx';
 import ForgotPassword from './pages/ForgotPassword.jsx';
 import PasswordResetForms from './pages/PasswordResetForm.jsx';
 import ActivateAccount from './pages/ActivateAccount.jsx';
@@ -43,7 +42,7 @@ root.render(
         <Route path="/FileIssue" element={<FileIssue/>}/>
         <Route path="/Profile" element={<Profile/>}/>
         <Route path="/RegisterandLogin" element={<RegisterandLogin/>}/>
-        <Route path='/PasswordCorrect' element={<PasswordCorrect/>}/>
+       
         {/* Lecturer Dashboard */}
         <Route path="/LecturerDashBoard" element={<LecDashboard />}>
           <Route index element={<LecHome />} />

@@ -1,16 +1,209 @@
-.content{
+.content {
   display: flex;
-  flex-grow:1;
-  margin-left:250px;
-  padding:20px;
-  transition: margin-left 0.3 ease-in-out;
-  transition: 650ms;
-  flex-direction: column;
+  flex-direction: row;
+  margin-left: 250px;
+  padding: 20px;
+  flex-grow: 1;
+  gap: 30px;
+  transition: margin-left 0.3s ease-in-out;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-color: #f5f7fa;
 }
-.content-file{
+
+.closed-dashboard + .content {
+  margin-left: 0;
+}
+
+.notifications {
+  width: 30%;
+  max-height: 80vh;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+
+.notificationslist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.noty {
+  background-color: #f1f5f9;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.noty:hover {
+  background-color: #e2e8f0;
+  transform: scale(1.01);
+}
+
+.sender {
+  font-weight: bold;
+  color: #2d3748;
+}
+
+.time {
+  font-size: 12px;
+  color: #718096;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.title {
+  font-size: 14px;
+  color: #4a5568;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* Scrollbar */
+.notifications::-webkit-scrollbar {
+  width: 8px;
+}
+
+.notifications::-webkit-scrollbar-thumb {
+  background-color: #cbd5e0;
+  border-radius: 4px;
+}
+
+.notifications::-webkit-scrollbar-thumb:hover {
+  background-color: #a0aec0;
+}
+
+.actualmessage {
+  width: 70%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  min-height: 100px;
+  max-height: 80vh;
+  overflow-y: auto;
   display: flex;
-  margin-left:250px;
-  padding:20px;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.openedmessage {
+  line-height: 1.6;
+}
+
+.openedmessage h2.sender {
+  font-size: 20px;
+  margin-bottom: 4px;
+  color: #2b6cb0;
+}
+
+.openedmessage h3.title {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #1a202c;
+}
+
+.openedmessage .time {
+  font-size: 12px;
+  color: #718096;
+}
+
+.openedmessage p {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #2d3748;
+}
+
+.content-file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 250px;
+  margin-top: 100px;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 400px;
+  background-color: #f9f9f9;
+  border: 1px solid #d0f4f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content-file input,
+.content-file select,
+.issuebox {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.2s ease;
+  resize: none;
+}
+
+.content-file input:focus,
+.content-file select:focus,
+.issuebox:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+.issuebox {
+  height: 100px;
+}
+
+.content-file button {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.content-file button:hover {
+  background-color: #2980b9;
+}
+
+.content-file button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.content-file p {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin: -8px 0 10px 0;
+  align-self: flex-start;
+}
+
+.success-message {
+  color: green;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.content-profile {
+  padding: 20px;
   flex-direction: column;
   border: 1px solid rgb(172, 251, 253);
   background-color: rgba(255, 255, 255, 0.466);
@@ -19,154 +212,67 @@
   height: 800px;
   text-align: center;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-top: 100px;
-
-}
-.issuebox{
-  width:280px;
-  height:100px;
-  border-radius:5px;
-  border: none;
-  display:flex;
-  justify-self: start;
-
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
 }
 
-
-.closed-dashboard+.content{
-  margin-left: 0;
-}
-
-.content-home{
+.content-home {
   display: flex;
   flex-direction: column;
-  flex-grow:1;
- margin-top: 100px;
-  padding:20px;
-  transition: margin-left 0.3 ease-in-out;
+  flex-grow: 1;
+  margin-top: 100px;
+  padding: 20px;
   background-image: url("../../assets/study-group-african-people.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
+  transition: margin-left 0.3s ease-in-out;
 }
 
-.home-message{
+.home-message {
   font-size: 3rem;
-    font-weight: bold;
-    animation: fadeIn 2s ease-in-out infinite alternate;
-    color: white;
-    margin: 0;
-    z-index: 10;
-    display: flex;
-    margin-left: 200px;
-    margin-bottom: 80px;
-}
-.message2{
-    font-size: 1rem;
-    font-weight: bold;
-    animation: fadeIn 2s ease-in-out infinite alternate;
-    color: white;
-    font-style: italic;
-    bottom: 0;
-    text-align: center;
-    line-height: 1.5; 
-    word-wrap: break-word; 
-  white-space: normal;
-  line-height: 1.5; 
-  width: 70%; 
-  margin: 0 auto; 
-  overflow-wrap: break-word; 
-
-    
-}
-.sidebar{
-  background-color: white;
-  color:black;
-  border-radius: 30px;
+  font-weight: bold;
+  animation: fadeIn 2s ease-in-out infinite alternate;
+  color: white;
+  margin: 0 0 80px 200px;
+  z-index: 10;
   display: flex;
-  justify-content: center;
-  
-  position: fixed;
-  right:5px;
-  width:400px;
-  height: 100%;
-  top: 70px;;
-}
-.content-profile{
-  padding:20px;
-  flex-direction: column;
-  border: 1px solid rgb(172, 251, 253);
-  background-color: rgba(255, 255, 255, 0.466);
-  border-radius: 5px;
-  width: 350px;
-  height: 800px;
-  text-align: center;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-top: 10px;
-
 }
 
-.notifications{
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  border-radius: 30px;
-  width:300px;
-  height: 100%;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  
-
-}
-.notificationslist{
-  list-style-type: none;
-  padding: 20px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  padding:8px 0px 8px 16px;
-  gap:0px;
-}
-.noty{
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  border:1px solid rgb(224, 232, 236) ;
-  background-color: rgb(223, 245, 248);
-  width:250px;
-  height:55px;
-  padding: 10px;
-  margin-top: 20px;
-}
-.noty :hover{
-  cursor: pointer;
-  transform: scale(1.05); 
-}
-.actualmessage{
-  background-color: wheat;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  border-radius: 30px;
-  display: flex;
-  position: absolute;
-  right:10px;
-  width:550px;
-  height: 100%;
-}
-
-.openedmessage{
-  margin-top: 20px;
-  padding: 20px;
-  
-}
-.sender{
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 20px;
-}
-.time{
-  font-size: 12px;
-  color: gray;
+.message2 {
+  font-size: 1rem;
+  font-weight: bold;
+  animation: fadeIn 2s ease-in-out infinite alternate;
+  color: white;
   font-style: italic;
+  text-align: center;
+  line-height: 1.5;
+  word-wrap: break-word;
+  white-space: normal;
+  width: 70%;
+  margin: 0 auto;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .notifications,
+  .actualmessage {
+    width: 100%;
+  }
+
+  .content-file {
+    margin: 50px auto;
+    width: 90%;
+  }
+
+  .sidebar {
+    display: none;
+  }
 }

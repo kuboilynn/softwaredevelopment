@@ -1,0 +1,141 @@
+.profile-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: sans-serif;
+    background-color: white;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 20%;
+}
+
+.profile-header h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.edit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.profile-picture {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+.upload-label {
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+.form-grid .divided{
+    grid-column: 1 / 3;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group input:disabled,
+.form-group select:disabled,
+.form-group textarea:disabled {
+    background-color: #f9f9f9;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.save-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 16px;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.loading {
+    text-align: center;
+    color: #777;
+}
+
+.form-message {
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.form-message.success {
+    background-color: #e6ffed;
+    color: #0f5132;
+    border: 1px solid #a3e4b0;
+}
+
+.form-message.error {
+    background-color: #ffe6e6;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}

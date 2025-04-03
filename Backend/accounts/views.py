@@ -57,13 +57,13 @@ def register(request):
     last_name = request.data.get("last_name")
     email = request.data.get("email")
     password = request.data.get("password")
-    phone_number = request.data.get("phone_number")
+    id_number = request.data.get("id_number")
     user_type = request.data.get("user_type")
     gender = request.data.get("gender")
     department = request.data.get("department")
 
 
-    if not all([username, email, password, first_name, last_name, phone_number, user_type, gender]):
+    if not all([username, email, password, first_name, last_name, id_number, user_type, gender]):
         return Response({"error": "All fields are required"}, status=status.HTTP_400_BAD_REQUEST)
 
     if User.objects.filter(username=username).exists():
@@ -77,7 +77,7 @@ def register(request):
     user.last_name = last_name
     user.save()
 
-    userProfile = UserProfile.objects.create(user=user, phone_number=phone_number, gender = gender, role = user_type)
+    userProfile = UserProfile.objects.create(user=user, id_number=id_number, gender = gender, role = user_type)
     if 'image' in request.FILES:
         image = request.FILES['image']
         userProfile.image = image

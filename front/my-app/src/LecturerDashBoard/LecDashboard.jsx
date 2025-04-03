@@ -3,14 +3,22 @@ import { FaBars, FaHome, FaFlag, FaUser, FaFileAlt } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './LecturerDashBoard.css';
+import { domain } from '../utils/domain';
+import useApiRequest from '../utils/useApiRequest';
 
 function LecDashboard() {
+  const { getRequest, postRequest, loading } = useApiRequest()
   const [dashboard, setDashboard] = useState(false);
   const [studentIssues, setStudentIssues] = useState([]);
+<<<<<<< HEAD
+=======
+  const [error, setError] = useState(null)
+>>>>>>> Lynn
 
   const toggleDashboard = () => setDashboard(!dashboard);
 
   useEffect(() => {
+<<<<<<< HEAD
     const fetchStudentIssues = async () => {
       try {
         const response = await fetch('http://localhost:3001/api/student-issues');
@@ -23,6 +31,26 @@ function LecDashboard() {
       }
     };
     fetchStudentIssues();
+=======
+    const fetchSubmissions = async () => {
+      try {
+        const req = await getRequest(`${domain}/submissions`);
+        if (req.status === 200) {
+          console.log(req.body)
+          setStudentIssues(req.body);
+          setError(null);
+        } else {
+          setError("Failed to fetch submissions.");
+        }
+      } catch (err) {
+        setError("Something went wrong while fetching submissions.");
+      } finally {
+        console.log("done")
+      }
+    };
+
+    fetchSubmissions();
+>>>>>>> Lynn
   }, []);
 
   const sidebarVariants = {

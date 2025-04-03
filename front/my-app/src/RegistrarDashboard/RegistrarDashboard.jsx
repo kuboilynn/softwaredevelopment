@@ -1,12 +1,25 @@
 import { Link, Outlet } from 'react-router-dom';
+<<<<<<< HEAD
 import { FaBars, FaHome, FaFlag, FaUser, FaFileAlt } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+=======
+import { FaBars, FaHome, FaFlag, FaUser, FaFileAlt, FaSignOutAlt } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import useApiRequest from '../utils/useApiRequest';
+import { domain } from '../utils/domain';
+>>>>>>> Lynn
 import './RegistrarDashBoard.css';
+import { useNavigate } from 'react-router-dom';
+import { getFromLocalStorage } from '../utils/EncryptDecrypt';
 
 function RegistrarDashboard() {
+  const navigate = useNavigate()
+  const { getRequest, postRequest, loading } = useApiRequest()
   const [dashboard, setDashboard] = useState(false);
   const [lecturerIssues, setLecturerIssues] = useState([]);
+<<<<<<< HEAD
 
   const toggleDashboard = () => setDashboard(!dashboard);
 
@@ -23,6 +36,43 @@ function RegistrarDashboard() {
       }
     };
     fetchLecturerIssues();
+=======
+  const [error, setError] = useState(null)
+  const toggleDashboard = () => setDashboard(!dashboard);
+
+  const handleLogout = async () => {
+    console.log(getFromLocalStorage("authInfo"))
+    const response = await postRequest(`${domain}/accounts/logout`, { "refresh": getFromLocalStorage("authInfo").refreshToken });
+    console.log(response);
+    if (response.status === 205) {
+      localStorage.removeItem("authInfo")
+      localStorage.removeItem("isLoggedIn")
+      navigate('/login');
+    } else {
+      console.log("Logout failed");
+    }
+  }
+
+  useEffect(() => {
+    const fetchSubmissions = async () => {
+      try {
+        const req = await getRequest(`${domain}/submissions`);
+        if (req.status === 200) {
+          console.log(req.body)
+          setLecturerIssues(req.body);
+          setError(null);
+        } else {
+          setError("Failed to fetch submissions.");
+        }
+      } catch (err) {
+        setError("Something went wrong while fetching submissions.");
+      } finally {
+        console.log("done")
+      }
+    };
+
+    fetchSubmissions();
+>>>>>>> Lynn
   }, []);
 
   const sidebarVariants = {
@@ -82,6 +132,11 @@ function RegistrarDashboard() {
                 </Link>
               </motion.li>
             ))}
+            <li>
+              <Link onClick={handleLogout}>
+                <FaSignOutAlt style={{ color: "red" }} /> Logout
+              </Link>
+            </li>
           </ul>
         </motion.nav>
       </AnimatePresence>
@@ -92,7 +147,11 @@ function RegistrarDashboard() {
         animate={dashboard ? "shifted" : "initial"}
         variants={mainVariants}
       >
+<<<<<<< HEAD
         <Outlet context={{ lecturerIssues, setLecturerIssues }} />
+=======
+        <Outlet context={{ lecturerIssues, setLecturerIssues, loading }} />
+>>>>>>> Lynn
       </motion.main>
     </div>
   );

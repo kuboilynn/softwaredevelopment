@@ -1,4 +1,5 @@
 import "../pages/styles/Dashboard.css";
+<<<<<<< HEAD
 import { useState } from "react";
 import { useOutletContext } from 'react-router-dom';
 
@@ -35,13 +36,51 @@ function RegFileIssue() {
     } catch (error) {
       console.error('Error submitting issue:', error);
       setStatusMessage("Failed to submit issue. Please try again.");
+=======
+import { useState, useEffect } from "react";
+import { useOutletContext } from 'react-router-dom';
+import useApiRequest from "../utils/useApiRequest";
+import { domain } from "../utils/domain";
+import { getFromLocalStorage } from "../utils/EncryptDecrypt";
+
+function RegFileIssue() {
+  const { postRequest, loading } = useApiRequest()
+  const { lecturerIssues, setLecturerIssues } = useOutletContext(); // Access and update context
+  const [issue, setIssue] = useState({ title: "", message: "" });
+  const [statusMessage, setStatusMessage] = useState("");
+  const [loggedUser, setLoggedUser] = useState(null)
+
+  useEffect(() => {
+    const loggedInUser = getFromLocalStorage("authInfo");
+    setLoggedUser(loggedInUser.user)
+  }, [])
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const notificationNew = {
+      user_id: loggedUser.user.id,
+      title: issue.title,
+      message: issue.message
+    };
+
+    const req = await postRequest(`${domain}/notifications`, notificationNew)
+    console.log(req);
+
+    if (req.status === 201) {
+      setStatusMessage("Notification sent successfully!");
+      setIssue({ title: "", message: "" })
+    } else {
+      console.error('Error sending message:');
+      setStatusMessage("Failed to send notification. Please try again.");
+>>>>>>> Lynn
     }
   };
 
   return (
     <div className="file-issue-container">
-      <h2>File a New Issue</h2>
+      <h2>Send Out A Notification</h2>
       <form className="issue-form" onSubmit={handleSubmit}>
+        {statusMessage && <div className="status-message" style={{padding:"5px 0"}}>{statusMessage}</div>}
         <div className="form-group">
           <label>Title</label>
           <input
@@ -53,15 +92,19 @@ function RegFileIssue() {
           />
         </div>
         <div className="form-group">
-          <label>Description</label>
+          <label>Notification</label>
           <textarea
-            value={issue.description}
-            onChange={(e) => setIssue({ ...issue, description: e.target.value })}
-            placeholder="Describe the issue"
+            value={issue.message}
+            onChange={(e) => setIssue({ ...issue, message: e.target.value })}
+            placeholder="Notification body"
             required
           />
         </div>
+<<<<<<< HEAD
         <button type="submit" className="submit-btn">Submit Issue</button>
+=======
+        <button type="submit" className="submit-btn">{loading ? "Please Wait ..." : "Submit Notification"}</button>
+>>>>>>> Lynn
       </form>
       {statusMessage && <div className="status-message">{statusMessage}</div>}
     </div>

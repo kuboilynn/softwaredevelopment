@@ -1,92 +1,97 @@
 import { useEffect, useState } from "react";
 import DashboardStudent from "./DashboardStudent";
+import useApiRequest from "../utils/useApiRequest";
+import { domain } from "../utils/domain";
 import './styles/student.css';
 
 function StudentMessages() {
- 
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      sender: "System",
-      text: "Welcome to your notifications, student! You will receive updates here.",
-      timestamp: "2025-04-01 14:00",
-    }
-  ]);
-
-  
+  const { getRequest } = useApiRequest();
+  const [notifications, setNotifications] = useState([]);
   const [selectedMessage, setSelectedMessage] = useState(null);
-  const [loading, setLoading] = useState(true); 
-  const [error, setError] = useState(null); 
-  
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-   
-    fetch("https://mukisamark.pythonanywhere.com/notifications")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch messages");
+    const fetchNotifications = async () => {
+      try {
+        const req = await getRequest(`${domain}/notifications`);
+        if (req.status === 200) {
+          setNotifications(req.body);
+          setError(null);
+        } else {
+          setError("Failed to fetch notifications.");
         }
-        return response.json();
-      })
-      .then((data) => {
-        setMessages(data); 
-        setLoading(false); 
-      })
-      .catch((err) => {
-        setError(err.message); 
-        setLoading(false); 
-      });
+      } catch (err) {
+        setError("Something went wrong while fetching messages.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNotifications();
   }, []);
 
- 
   const handleMessageClick = (message) => {
     setSelectedMessage(message);
   };
 
- 
   return (
     <div>
       <DashboardStudent />
       <div className="content">
-        
+
+        {/* Sidebar notifications */}
         <div className="notifications">
           <ul className="notificationslist">
-          {loading && (
+            {loading && (
               <li className="noty">
-                <div>
-                  <strong>Loading messages...</strong>
-                </div>
+                <strong>Loading messages...</strong>
               </li>
             )}
+
             {error && (
               <li className="noty error">
-                <div>
-                  <strong>Error: {error}</strong>
-                </div>
+                <strong>{error}</strong>
               </li>
             )}
-            {messages.map((message) => (
-              <li className="noty" key={message.id} onClick={() => handleMessageClick(message)}>
+
+            {!loading && !error && notifications.length === 0 && (
+              <li className="noty">
+                <strong>No notifications available.</strong>
+              </li>
+            )}
+
+            {notifications.map((message) => (
+              <li
+                key={message.id}
+                className="noty"
+                onClick={() => handleMessageClick(message)}
+              >
                 <div>
-                  <strong className="sender">{message.sender}</strong><br/>
-                  <span className="time">{message.timestamp}</span>
+                  <strong className="sender">
+                    {message.user?.first_name} {message.user?.last_name}
+                  </strong><br />
+                  <span className="time">{message.created_at}</span>
+                  <p className="title">{message.title}</p>
                 </div>
-                
               </li>
             ))}
           </ul>
         </div>
 
-       
+        {/* Selected message viewer */}
         <div className="actualmessage">
           {selectedMessage ? (
             <div className="openedmessage">
-              <h2 className="sender">{selectedMessage.sender}</h2>
-              <small className="time">{selectedMessage.timestamp}</small>
-              <p>{selectedMessage.text}</p>
-              
+              <h2 className="sender">
+                {selectedMessage.user?.first_name} {selectedMessage.user?.last_name}
+              </h2>
+              <small className="time">{selectedMessage.created_at}</small>
+              <h3 className="title">{selectedMessage.title}</h3>
+              <p>{selectedMessage.message}</p>
             </div>
           ) : (
-            <p>Click on a message to view details.</p>
+            <p className="openedmessage">Click on a message to view details.</p>
           )}
         </div>
       </div>

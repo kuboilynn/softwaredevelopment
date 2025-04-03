@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-
+import Input from "../UI/input";
 import useApiRequest from "../utils/useApiRequest";
 import { domain } from "../utils/domain";
 import { Edit, Save, Upload } from "lucide-react";
@@ -74,12 +74,12 @@ const RegProfile = () => {
   return (
 
     <>
-      <div className="lec-profile-container">
+      <div className="profile-container">
 
         <div className="lec-profile-header">
           <h3>User Profile - {formData && formData.username}</h3>
           {!isEditing && (
-            <button className="lec-edit-btn" onClick={() => setIsEditing(true)}>
+            <button className="edit-button" onClick={() => setIsEditing(true)}>
               <Edit size={16} /> Edit Profile
             </button>
           )}
@@ -95,12 +95,13 @@ const RegProfile = () => {
               <img
                 src={imagePreview || "/vite.svg"}
                 alt="Profile"
-                className="lec-profile-image"
+                className="image-upload"
+                
               />
               {isEditing && (
-                <label className="lec-upload-label">
+                <label className="field-label">
                   <Upload size={16} />
-                  <input type="file" accept="image/*" onChange={handleImageUpload} hidden />
+                  <input className="field-input" type="file" accept="image/*" onChange={handleImageUpload} hidden />
                 </label>
               )}
             </div>
@@ -115,24 +116,26 @@ const RegProfile = () => {
                 //["Department", "department"],
               ].map(([label, name]) => (
                 <div className="lec-form-group" key={name}>
-                  <label>{label}</label>
-                  <input
+                  <label className="field-label">{label}</label>
+                  <Input
                     type="text"
                     name={name}
                     value={formData[name]}
                     onChange={handleInputChange}
                     disabled={!isEditing}
+                    
                   />
                 </div>
               ))}
 
               <div className="lec-form-group">
-                <label>Gender</label>
+                <label className="field-label">Gender</label>
                 <select
                   name="gender"
                   value={formData.gender}
                   onChange={handleInputChange}
                   disabled={!isEditing}
+                  className="field-input"
                 >
                   <option value="">Select</option>
                   <option value="Male">Male</option>
@@ -142,12 +145,13 @@ const RegProfile = () => {
               </div>
 
               <div className="lec-form-group" style={{display:"none"}}>
-                <label>User Type</label>
+                <label className="field-label">User Type</label>
                 <select
                   name="role"
                   value={formData.role}
                   onChange={handleInputChange}
                   disabled={!isEditing}
+                  className="field-input"
                 >
                   <option value="">Select</option>
                   <option value="Student">Student</option>
@@ -158,7 +162,7 @@ const RegProfile = () => {
             </div>
 
             {isEditing && (
-              <button type="submit" className="lec-save-btn">
+              <button type="submit" className="edit-button">
                 <Save size={16} /> Save Changes
               </button>
             )}

@@ -1,10 +1,10 @@
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes, parser_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.models import User
-from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 from django.core.mail import send_mail
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -15,6 +15,9 @@ from django.core.mail import send_mail
 from . serializers import UserSerialiser, UserProfileSerialiser
 from django.core.mail import EmailMessage
 from . models import UserProfile
+from rest_framework.parsers import MultiPartParser, FormParser
+from django.shortcuts import get_object_or_404
+from rest_framework_simplejwt.token_blacklist.models import BlacklistedToken, OutstandingToken
 
 @api_view(["POST"])
 @permission_classes([AllowAny])
@@ -57,8 +60,8 @@ def register(request):
     last_name = request.data.get("last_name")
     email = request.data.get("email")
     password = request.data.get("password")
-    id_number =  request.data.get("phone_number")
-    user_type = request.data.get("user_type")
+    id_number = request.data.get("id_number")
+    user_type = request.data.get("role")
     gender = request.data.get("gender")
     department = request.data.get("department")
 
@@ -77,7 +80,7 @@ def register(request):
     user.last_name = last_name
     user.save()
 
-    userProfile = UserProfile.objects.create(user=user, phone_number=id_number, gender = gender, role = user_type)
+    userProfile = UserProfile.objects.create(user=user, id_number=id_number, gender = gender, role = user_type)
     if 'image' in request.FILES:
         image = request.FILES['image']
         userProfile.image = image
@@ -110,6 +113,39 @@ def register(request):
         status=status.HTTP_201_CREATED)
 
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def logout_view(request):
+    refresh_token = request.data.get("refresh")
+
+    if refresh_token is None:
+        return Response({"error": "Refresh token is required."}, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        token = RefreshToken(refresh_token)
+        token.blacklist()
+        return Response({"message": "Logout successful."}, status=status.HTTP_205_RESET_CONTENT)
+    except TokenError as e:
+        return Response({"error": "Invalid or expired token."}, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def logout_all_view(request):
+    user = request.user
+
+    try:
+        tokens = OutstandingToken.objects.filter(user=user)
+        for token in tokens:
+            # If not already blacklisted, blacklist it
+            if not BlacklistedToken.objects.filter(token=token).exists():
+                BlacklistedToken.objects.create(token=token)
+
+        return Response({"message": "All sessions logged out successfully."}, status=status.HTTP_205_RESET_CONTENT)
+
+    except Exception as e:
+        return Response({"error": "Something went wrong while logging out from all devices."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
 @api_view(["GET"])
 @permission_classes([AllowAny])
 def activate_account(request, uidb64, token):
@@ -195,9 +231,24 @@ def reset_password(request, uidb64, token):
     return Response({"message": "Password has been reset successfully"}, status=status.HTTP_200_OK)
 
 
-@api_view(["GET"])
+@api_view(["GET", "PUT"])
+@parser_classes([MultiPartParser, FormParser])
 def user_profile(request):
     user = request.user
-    data = UserProfile.objects.get(user=user)
-    serializer = UserProfileSerialiser(data)
-    return Response(serializer.data, status=status.HTTP_200_OK)
+    if request.method == "GET":
+        try:
+            profile_data = UserProfile.objects.get(user = user)
+            serializer = UserProfileSerialiser(profile_data)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except UserProfile.DoesNotExist as e:
+            return Response({"error":f"{e}"}, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method =="PUT":
+        print(request.data)
+        user_profile_data = get_object_or_404(UserProfile, user=request.user) 
+        serializer = UserProfileSerialiser(user_profile_data, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return Response({"error":"bad request"}, status=status.HTTP_400_BAD_REQUEST)

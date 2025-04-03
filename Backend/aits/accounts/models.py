@@ -5,9 +5,9 @@ from django.dispatch import receiver
 
 class UserProfile(models.Model):
     ROLE_CHOICES = [
-        ('lecturer', 'Lecturer'),
-        ('registrar', 'Registrar'),
-        ('student', 'Student'),
+        ('Lecturer', 'Lecturer'),
+        ('Registrar', 'Registrar'),
+        ('Student', 'Student'),
     ]
     GENDER_TYPES = (
         ("Male", "Male"),
@@ -15,7 +15,7 @@ class UserProfile(models.Model):
         ("Others", "Others"),
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='student')
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='Student')
     program = models.CharField(max_length=300, default='', blank=True, null=True)
     session = models.CharField(max_length=300, default='', blank=True, null=True)
     gender = models.TextField(max_length=10, choices=GENDER_TYPES, default="Male")

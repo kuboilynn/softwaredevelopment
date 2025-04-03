@@ -219,17 +219,11 @@
 .content-home {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  flex-grow:1;
- margin-top: 100px;
-  padding:20px;
-  transition: margin-left 0.3 ease-in-out;
-  transition: 650ms;
-=======
+
   flex-grow: 1;
   margin-top: 100px;
   padding: 20px;
->>>>>>> Lynn
+
   background-image: url("../../assets/study-group-african-people.jpg");
   background-size: cover;
   background-position: center;
@@ -240,69 +234,14 @@
 
 .home-message {
   font-size: 3rem;
-<<<<<<< HEAD
-    font-weight: bold;
-    animation: fadeIn 2s ease-in-out infinite alternate;
-    color: white;
-    margin: 0;
-    z-index: 10;
-    display: flex;
-    margin-left: 200px;
-    margin-bottom: 80px;
-}
-.message2{
-    font-size: 1rem;
-    font-weight: bold;
-    animation: fadeIn 2s ease-in-out infinite alternate;
-    color: white;
-    font-style: italic;
-    bottom: 0;
-    text-align: center;
-    line-height: 1.5; 
-    word-wrap: break-word; 
-  white-space: normal;
-  line-height: 1.5; 
-  width: 70%; 
-  margin: 0 auto; 
-  overflow-wrap: break-word; 
 
-    
-}
-.sidebar{
-  display: flex;
-  flex-grow:1;
-  background-color: white;
-  color:black;
-  justify-content: center;
-  margin-right:70%;
-  position:absolute;
-  right:5px;
-  border-radius: 30px;
-  width:400px;
-  height: 100%;
-  top: 70px;;
-}
-.content-profile{
-  padding:20px;
-  flex-direction: column;
-  border: 1px solid rgb(172, 251, 253);
-  background-color: rgba(255, 255, 255, 0.466);
-  border-radius: 5px;
-  width: 350px;
-  height: 800px;
-  text-align: center;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-top: 10px;
-
-=======
   font-weight: bold;
   animation: fadeIn 2s ease-in-out infinite alternate;
   color: white;
   margin: 0 0 80px 200px;
   z-index: 10;
   display: flex;
->>>>>>> Lynn
+
 }
 
 .message2 {
@@ -311,9 +250,9 @@
   animation: fadeIn 2s ease-in-out infinite alternate;
   color: white;
   font-style: italic;
-<<<<<<< HEAD
 
-=======
+
+
   text-align: center;
   line-height: 1.5;
   word-wrap: break-word;
@@ -343,5 +282,5 @@
   .sidebar {
     display: none;
   }
->>>>>>> Lynn
+
 }

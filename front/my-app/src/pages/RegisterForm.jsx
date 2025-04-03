@@ -1,15 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-<<<<<<< HEAD
-import { registerUser } from "../api/authApi";  // Import the registerUser function
 
-function RegisterForm() {
-  const navigate = useNavigate();
-  const [showErrors, setShowErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [serverError, setServerError] = useState("");
-  const [formData, setFormData] = useState({
-=======
 import Input from "../UI/input";
 import '../pages/styles/AllRegister.css';
 import useApiRequest from "../utils/useApiRequest.js";
@@ -19,19 +10,14 @@ function RegisterForm() {
   const { postRequest, loading } = useApiRequest()
   const [step, setStep] = useState(1);
   const initial = {
->>>>>>> Lynn
+
     username: "",
     first_name: "",
     last_name: "",
     email: "",
     password: "",
     confirmPassword: "",
-<<<<<<< HEAD
-    idNo: "",
-    userType: "",
-    gender: ""
-  });
-=======
+
     id_number: "",
     role: "",
     gender: "",
@@ -48,7 +34,6 @@ function RegisterForm() {
     1: ['username', 'first_name', 'last_name', 'email', 'gender'],
     2: ['id_number', 'role', 'department', 'session', 'password', 'confirmPassword']
   };
->>>>>>> Lynn
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -73,20 +58,14 @@ function RegisterForm() {
     }));
   };
 
-<<<<<<< HEAD
-  const handleSubmit = async () => {
-    const errors = {};
-    const requiredFields = ['username', 'firstName', 'lastName', 'email', 'password', 'idNo', 'userType', 'gender'];
 
-    requiredFields.forEach(field => {
-=======
 
   const validateStep = () => {
     const errors = {};
     requiredFields[step].forEach(field => {
       // Only check session if role is Student
       if (field === 'session' && formData.role !== 'Student') return;
->>>>>>> Lynn
+
       if (!formData[field]) {
         errors[field] = true;
       }
@@ -100,46 +79,7 @@ function RegisterForm() {
     return Object.keys(errors).length === 0;
   };
 
-<<<<<<< HEAD
-    const registrationData = {
-      username: formData.username,
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      password: formData.password,
-      idNo: formData.idNo,
-      userType: formData.userType,
-      gender: formData.gender,
-    };
 
-    setLoading(true);
-
-    try {
-      const data = await registerUser(registrationData);  // Use the API call
-      setLoading(false);
-      if (data.success) {
-        // Redirect based on user type
-        switch (formData.userType) {
-          case 'Student':
-            navigate("/StudentHome");
-            break;
-          case 'Lecturer':
-            navigate("/LecturerDashBoard/LecHome");
-            break;
-          case 'Registrar':
-            navigate("/RegistrarDashboard/RegHome");
-            break;
-          default:
-            console.error('Unknown user type');
-        }
-      } else {
-        setServerError(data.message || "Registration failed. Please try again.");
-      }
-    } catch (error) {
-      setLoading(false);
-      setServerError(error.message);
-      console.error("Error during registration:", error);
-=======
   const handleNext = () => {
     if (validateStep()) setStep(step + 1);
   };
@@ -171,93 +111,12 @@ function RegisterForm() {
     else if (req.body.message) {
       setSuccessMessage(req.body.message);
       setFormData(initial)
->>>>>>> Lynn
+
     }
   };
 
   return (
-<<<<<<< HEAD
-    <div className="register-form">
-      <h3><i className="fas fa-user-graduate"></i>Register</h3>
-      <motion.p 
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="tagline"
-      >
-        Create Your Academic Profile
-      </motion.p>
 
-      {/* Display server error message */}
-      {serverError && <div className="error-message">{serverError}</div>}
-
-      {/* Form Fields */}
-      <div className="Input-group">
-        <Input 
-          type="text" 
-          name="username"
-          value={formData.username}
-          onChange={handleInputChange}
-          placeholder="Username"
-          className="Input-field"
-        />
-        {showErrors.username && <span className="error">*Required</span>}
-      </div>
-
-      <div className="Input-group">
-        <Input 
-          type="text" 
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleInputChange}
-          placeholder="First Name"
-          className="Input-field"
-        />
-        {showErrors.firstName && <span className="error">*Required</span>}
-      </div>
-
-      <div className="Input-group">
-        <Input 
-          type="text" 
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleInputChange}
-          placeholder="Last Name"
-          className="Input-field"
-        />
-        {showErrors.lastName && <span className="error">*Required</span>}
-      </div>
-
-      <div className="Input-group">
-        <Input 
-          type="email" 
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          placeholder="Email"
-          className="Input-field"
-        />
-        {showErrors.email && <span className="error">*Required</span>}
-      </div>
-
-      <div className="Input-group">
-        <Input 
-          type="text" 
-          name="idNo"
-          value={formData.idNo}
-          onChange={handleInputChange}
-          placeholder="ID Number"
-          className="Input-field"
-        />
-        {showErrors.idNo && <span className="error">*Required</span>}
-      </div>
-
-      <div className="Input-group">
-        <select
-          name="userType"
-          value={formData.userType}
-          onChange={handleInputChange}
-          className="Input-field"
-=======
     <div className="register-page">
       <div className="register-form">
         <h3><i className="fas fa-user-graduate"></i> Register</h3>
@@ -265,7 +124,7 @@ function RegisterForm() {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           className="tagline"
->>>>>>> Lynn
+
         >
           Create Your Academic Profile
         </motion.p>
@@ -299,15 +158,7 @@ function RegisterForm() {
               {showErrors.first_name && <span className="error">*Required</span>}
             </div>
 
-<<<<<<< HEAD
-      <button 
-        className="signup-btn"
-        onClick={handleSubmit}
-        disabled={loading}
-      >
-        {loading ? 'Registering...' : <><i className="fas fa-user-plus"></i> Sign Up</>}
-      </button>
-=======
+
             <div className="Input-group">
               <Input
                 type="text"
@@ -459,7 +310,7 @@ function RegisterForm() {
           </>
         )}
       </div>
->>>>>>> Lynn
+
     </div>
   );
 }

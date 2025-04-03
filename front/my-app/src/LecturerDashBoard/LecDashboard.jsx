@@ -10,28 +10,13 @@ function LecDashboard() {
   const { getRequest, postRequest, loading } = useApiRequest()
   const [dashboard, setDashboard] = useState(false);
   const [studentIssues, setStudentIssues] = useState([]);
-<<<<<<< HEAD
-=======
+
   const [error, setError] = useState(null)
->>>>>>> Lynn
 
   const toggleDashboard = () => setDashboard(!dashboard);
 
   useEffect(() => {
-<<<<<<< HEAD
-    const fetchStudentIssues = async () => {
-      try {
-        const response = await fetch('http://localhost:3001/api/student-issues');
-        if (!response.ok) throw new Error('Failed to fetch student issues');
-        const data = await response.json();
-        setStudentIssues(data);
-      } catch (error) {
-        console.error('Error fetching student issues:', error);
-        setStudentIssues([]);
-      }
-    };
-    fetchStudentIssues();
-=======
+
     const fetchSubmissions = async () => {
       try {
         const req = await getRequest(`${domain}/submissions`);
@@ -50,7 +35,7 @@ function LecDashboard() {
     };
 
     fetchSubmissions();
->>>>>>> Lynn
+
   }, []);
 
   const sidebarVariants = {

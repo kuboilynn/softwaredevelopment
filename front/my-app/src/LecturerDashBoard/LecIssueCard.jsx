@@ -5,10 +5,9 @@ import useApiRequest from "../utils/useApiRequest";
 import { domain } from "../utils/domain";
 
 const LecIssueCard = () => {
-<<<<<<< HEAD
-=======
+
   const { putRequest, loading } = useApiRequest()
->>>>>>> Lynn
+
   const { studentIssues, setStudentIssues } = useOutletContext(); // Access and update context
   const [issueList, setIssueList] = useState(studentIssues || []);
   const [filterStatus, setFilterStatus] = useState('All');
@@ -19,29 +18,7 @@ const LecIssueCard = () => {
     setIssueList(studentIssues || []);
   }, [studentIssues]);
 
-<<<<<<< HEAD
-  const handleResolve = async (issueId) => {
-    try {
-      const updatedIssues = issueList.map((issue) =>
-        issueId === issue.id ? { ...issue, status: 'Resolved' } : issue
-      );
-      setIssueList(updatedIssues);
-      setStudentIssues(updatedIssues); // Update context
 
-      const response = await fetch(`http://localhost:3001/api/issues/${issueId}`, {
-        method: 'PATCH',
-        body: JSON.stringify({ status: 'Resolved' }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-      if (!response.ok) throw new Error('Failed to update issue status');
-      console.log(`Issue with ID: ${issueId} has been resolved`);
-    } catch (error) {
-      console.error('Error resolving issue:', error);
-      setIssueList(studentIssues); // Revert on failure
-    }
-  };
-
-=======
   const handleResolve = async (issueId, action) => {
     try {
       const updatedIssues = issueList.map((issue) =>
@@ -69,7 +46,7 @@ const LecIssueCard = () => {
   };
 
 
->>>>>>> Lynn
+
   const handleSort = (field) => {
     const newSortOrder = sortField === field && sortOrder === 'asc' ? 'desc' : 'asc';
     setSortField(field);
@@ -98,14 +75,11 @@ const LecIssueCard = () => {
           className="filter-dropdown"
         >
           <option value="All">All</option>
-<<<<<<< HEAD
-          <option value="Pending">Pending</option>
-          <option value="Resolved">Resolved</option>
-=======
+
           <option value="pending">Pending</option>
           <option value="resolved">Resolved</option>
           <option value="rejected">Rejected</option>
->>>>>>> Lynn
+
         </select>
       </div>
 
@@ -134,25 +108,16 @@ const LecIssueCard = () => {
                 key={issue.id}
                 className={`issue-card-row ${issue.status === 'Resolved' ? 'resolved' : ''}`}
               >
-<<<<<<< HEAD
-                <td>{issue.student || 'Unknown Student'}</td>
-=======
+
                 <td>{`${issue.student.first_name} ${issue.student.last_name}` || 'Unknown Student'}</td>
->>>>>>> Lynn
+
                 <td>
                   <span className={`status-badge ${issue.status?.toLowerCase()}`}>
                     {issue.status || 'Pending'}
                   </span>
                 </td>
                 <td>{issue.description || 'No description'}</td>
-<<<<<<< HEAD
-                <td>{issue.submittedAt || 'Not set'}</td>
-                <td>
-                  {issue.status !== 'Resolved' ? (
-                    <button className="resolve-button" onClick={() => handleResolve(issue.id)}>
-                      Resolve
-                    </button>
-=======
+
                 <td>{new Date(issue.submission_date).toLocaleString("en-US", {
                   year: "numeric",
                   month: "long",
@@ -172,7 +137,7 @@ const LecIssueCard = () => {
                         Reject
                       </button>
                     </div>
->>>>>>> Lynn
+
                   ) : (
                     <span className="resolve-text">Resolved</span>
                   )}

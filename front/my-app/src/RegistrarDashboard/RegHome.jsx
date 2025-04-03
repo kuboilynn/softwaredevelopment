@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-import React from 'react';
-import { useNavigate, useOutletContext } from 'react-router-dom';
-import { FaBell } from 'react-icons/fa';
-import './RegHome.css';
 
-function RegHome() {
-  const navigate = useNavigate();
-  const { lecturerIssues } = useOutletContext(); // Access issues from context
-  const pendingIssues = lecturerIssues.filter(issue => issue.status === "Pending").length;
-=======
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
 import { FaBell } from 'react-icons/fa';
@@ -45,7 +35,7 @@ function RegHome() {
       console.log("done!")
     }
   };
->>>>>>> Lynn
+
 
   function GotoDashboard() {
     navigate("/RegistrarDashboard/Dashboard");
@@ -102,21 +92,16 @@ function RegHome() {
             ))}
           </div>
           <div className="card">
-<<<<<<< HEAD
-            <h3>Notification</h3>
-            <p>New issue reported</p>
-=======
+
             <h3>Submissions</h3>
             <p style={{ fontWeight: 900 }}>New issue reported</p>
->>>>>>> Lynn
+
             <div className="notification">
               <FaBell className="bell-icon" />
               {pendingIssues > 0 && (
                 <span className="notification-badge">{pendingIssues}</span>
               )}
-<<<<<<< HEAD
-            </div>
-=======
+
 
             </div>
             {lecturerIssues.filter(issue => issue.status === "pending").length > 0 ? (
@@ -147,7 +132,7 @@ function RegHome() {
             ) : (
               <p>No issues found</p>
             )}
->>>>>>> Lynn
+
           </div>
         </div>
       </div>

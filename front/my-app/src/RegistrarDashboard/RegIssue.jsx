@@ -5,27 +5,7 @@ import useApiRequest from "../utils/useApiRequest";
 import { domain } from "../utils/domain";
 
 function RegIssue() {
-<<<<<<< HEAD
-  const { lecturerIssues, setLecturerIssues } = useOutletContext(); // Access and update context
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchLecturerIssues = async () => {
-      try {
-        const response = await fetch('http://localhost:3001/api/lecturer-issues');
-        if (!response.ok) throw new Error('Failed to fetch lecturer issues');
-        const data = await response.json();
-        setLecturerIssues(data); // Update context with fetched issues
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching lecturer issues:', error);
-        setLecturerIssues([]);
-        setLoading(false);
-      }
-    };
-    fetchLecturerIssues();
-  }, [setLecturerIssues]);
-=======
   const { putRequest, loading: loadingPut } = useApiRequest()
   const { lecturerIssues, setLecturerIssues, loading } = useOutletContext(); // Access and update context
 
@@ -34,14 +14,13 @@ function RegIssue() {
   useEffect(() => {
     setIssueList(lecturerIssues || []);
   }, [lecturerIssues]);
->>>>>>> Lynn
+
 
   if (loading) {
     return <div className="issues-container">Loading issues...</div>;
   }
 
-<<<<<<< HEAD
-=======
+
   const handleResolve = async (issueId, action) => {
     try {
       const updatedIssues = issueList.map((issue) =>
@@ -68,7 +47,7 @@ function RegIssue() {
     }
   };
 
->>>>>>> Lynn
+
   return (
     <div className="issues-container">
       <h2>Reported Issues</h2>
@@ -76,13 +55,7 @@ function RegIssue() {
         {lecturerIssues.length > 0 ? (
           lecturerIssues.map((issue) => (
             <div className="card" key={issue.id}>
-<<<<<<< HEAD
-              <h3>Issue #{issue.id}</h3>
-              <p>{issue.description || 'Details from lecturer dashboard...'}</p>
-              <span className={`status ${issue.status.toLowerCase()}`}>
-                {issue.status || 'Pending'}
-              </span>
-=======
+
               <h3 style={{display:"flex", justifyContent:"space-between"}}><span>Issue #{issue.id}</span> <span className={`status ${issue.status.toLowerCase()}`}>
                 {issue.status || 'Pending'}
               </span></h3>
@@ -98,7 +71,7 @@ function RegIssue() {
                   Reject
                 </button>
               </div>
->>>>>>> Lynn
+
             </div>
           ))
         ) : (

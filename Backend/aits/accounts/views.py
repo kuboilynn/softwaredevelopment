@@ -57,7 +57,7 @@ def register(request):
     last_name = request.data.get("last_name")
     email = request.data.get("email")
     password = request.data.get("password")
-    id_number = request.data.get("phone_number")
+    id_number =  request.data.get("phone_number")
     user_type = request.data.get("user_type")
     gender = request.data.get("gender")
     department = request.data.get("department")

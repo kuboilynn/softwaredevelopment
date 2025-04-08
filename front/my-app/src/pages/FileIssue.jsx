@@ -166,7 +166,7 @@ function FileIssue() {
           />
         </div>
         <div style={{ width: "100%" }}>
-          <Button type="submit">Submit</Button>
+          <Button  className="submit"type="submit">Submit</Button>
         </div>
 
       </form>

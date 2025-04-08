@@ -13,7 +13,7 @@ const Button=styled.button`
   border:none;
   &:hover{
     cursor: pointer;
-    background-color:rgb(5, 31, 65);
+    background-color:rgb(5, 21, 65);
     
   }
 `

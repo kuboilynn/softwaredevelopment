@@ -36,7 +36,7 @@ function Login() {
     }
 
     setShowError(false);
-    setError(""); // Clear any previous errors
+    setError(""); 
     console.log("Login attempted with:", { username, password });
     setLoading(true);
     handleAuth();
@@ -60,7 +60,7 @@ function Login() {
       .then((data) => {
         setLoading(false);
         console.log(data)
-        //localStorage.setItem("authInfo1", JSON.stringify(data))
+        
         saveToLocalStorage("authInfo", data)
         if (data.accessToken) {
           console.log("Login successful:", data);

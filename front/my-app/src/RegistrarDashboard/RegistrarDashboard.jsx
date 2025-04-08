@@ -97,6 +97,7 @@ function RegistrarDashboard() {
               { to: "/RegistrarDashboard/RegIssue", icon: FaFlag, text: "RegIssue" },
               { to: "/RegistrarDashboard/RegFileIssue", icon: FaFileAlt, text: "RegFileIssue" },
               { to: "/RegistrarDashboard/RegProfile", icon: FaUser, text: "RegProfile" },
+              { to:"/Login", icon: FaSignOutAlt, text: "Logout" },
             ].map((item, index) => (
               <motion.li
                 key={item.text}
@@ -112,11 +113,7 @@ function RegistrarDashboard() {
                 </Link>
               </motion.li>
             ))}
-            <li>
-              <Link onClick={handleLogout}>
-                <FaSignOutAlt style={{ color: "red" }} /> Logout
-              </Link>
-            </li>
+            
           </ul>
         </motion.nav>
       </AnimatePresence>

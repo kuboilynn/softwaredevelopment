@@ -165,8 +165,8 @@ function FileIssue() {
             style={{ marginBottom: "15px" }}
           />
         </div>
-        <div style={{ width: "100%" }}>
-          <Button  className="submit"type="submit">Submit</Button>
+        <div>
+          <Button  type="submit">Submit</Button>
         </div>
 
       </form>

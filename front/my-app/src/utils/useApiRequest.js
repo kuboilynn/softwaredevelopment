@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { getFromLocalStorage, saveToLocalStorage } from "./EncryptDecrypt";
 import { domain } from "./domain";
 
@@ -108,7 +108,7 @@ const useApiRequest = () => {
             }
 
             if (!apiResponse.ok) {
-                throw {
+                throw{
                     message: responseData?.error || `Request failed with status ${apiResponse.status}`,
                     status: apiResponse.status,
                     details: responseData,

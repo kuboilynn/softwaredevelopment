@@ -8,6 +8,7 @@ class Submission(models.Model):
     file = models.FileField(upload_to='submissions/')
     description = models.TextField()
     status = models.CharField(max_length=100,default="pending")
+    
     submission_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

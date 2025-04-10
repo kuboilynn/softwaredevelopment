@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class Submission(models.Model):
     STATUS = (("pending", "Pending"), ("approved", "Approved"), ("rejected", "Rejected"))
     student = models.ForeignKey(User, on_delete=models.CASCADE)
+    
     file = models.FileField(upload_to='submissions/')
     description = models.TextField()
     status = models.CharField(max_length=100,default="pending")

@@ -29,6 +29,7 @@ def api_endpoints_view(request):
         "submission detail": "/submissions/<int:pk>",
         "notifications": "/notifications",
         "notification detail": "/notifications/<int:pk>"
+        
     }
     return Response(endpoints)
 

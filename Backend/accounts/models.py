@@ -44,6 +44,7 @@ def delete_old_image_on_update(sender, instance, **kwargs):
     try:
         old_instance = UserProfile.objects.get(pk=instance.pk) 
     except UserProfile.DoesNotExist:
+        return 
         
         
 

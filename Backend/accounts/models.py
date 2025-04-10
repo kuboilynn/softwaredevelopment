@@ -3,7 +3,6 @@ from django.db import models
 import os
 from django.dispatch import receiver
 
-
 class UserProfile(models.Model):
     ROLE_CHOICES = [
         ('lecturer', 'Lecturer'),
@@ -45,7 +44,8 @@ def delete_old_image_on_update(sender, instance, **kwargs):
     try:
         old_instance = UserProfile.objects.get(pk=instance.pk) 
     except UserProfile.DoesNotExist:
-        return 
+        
+        
 
     # If image has changed and old image exists, delete old image
     if old_instance.image and old_instance.image != instance.image:

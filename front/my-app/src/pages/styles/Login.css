@@ -1,45 +1,104 @@
 .Login{
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 10px;
-    margin-top: 5px;
+    margin-top: -50px;
+   
 }
 
-.Login h3{
-    font-size: 20px;
-    color: #333;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 10px;
-}
-
-.Login img{
-    width: 350px;
+.logo{
+    width: 120px;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in;
 }
 
-.Login input{
-    display: flex;
-    flex-direction: column;
-    margin-top: -5px;
-}
-
-.Login button{
-    display: flex;
-    flex-direction: column;
-    margin-right: 60px;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
-
-.Login p{
+.gin{
     font-size: 20px;
     color: #333;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 10px;
+    margin-top: -20px;
+}
+.access{
+    font-size: 20px;
+    margin-top: -30px;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+}
 
+.input-group{
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+.input-field{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+.input-field:focus{
+    border-color: #3498db;
+    outline: none;
+
+}
+.error{
+    color: #e74c3c;
+    font-size: 16px;
+    margin-top: 5px;
+    display: block;
+}
+.error-message{
+    color: #e74c3c;
+    font-size: 16px;
+    margin: 5px 0 15px 0;
+}
+
+.login-btn{
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-size: 0.975rem;
+}
+
+.signup-link{
+    margin-top: 20px;
+    color: #161717;
+}
+.signup-link a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn{
+    from{opacity: 0; } to {opacity: 1;}
+}
+
+.newpassword{
+    display: flex;
+    flex-direction: column;
+    width:300px;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 500px;
+    margin-top: 100px;
+    background-color: rgb(112, 250, 215);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid rgb(80, 243, 221);
+    
 }

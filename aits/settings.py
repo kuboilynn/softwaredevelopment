@@ -146,3 +146,4 @@ EMAIL_HOST_USER = "your_email@gmail.com"  # Change to your email
 EMAIL_HOST_PASSWORD = "your_app_password"  # Use an App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+

@@ -76,3 +76,5 @@ class IssueViewSet(viewsets.ModelViewSet):
         recipient_email = issue.student.email
         send_mail(subject, message, "your_email@gmail.com", [recipient_email])
         print(f"Email sent to {recipient_email}: {message}")  # Debugging log
+
+        

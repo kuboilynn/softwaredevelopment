@@ -2,9 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Full screen height */
-  background-color: #f0f2f5; /* Optional: light background */
-  padding: 20px; 
+  min-height: 100vh; 
+  background-color: #f0f2f5; 
 }
 
 .divided{

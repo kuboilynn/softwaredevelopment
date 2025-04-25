@@ -106,7 +106,7 @@ function LecDashboard() {
         animate={dashboard ? "shifted" : "initial"}
         variants={mainVariants}
       >
-        <Outlet context={{ studentIssues, setStudentIssues }} /> {/* Pass setter for updates */}
+        <Outlet context={{ studentIssues, setStudentIssues }} /> {}
       </motion.main>
     </div>
   );

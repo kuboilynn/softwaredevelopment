@@ -7,6 +7,7 @@
   flex-direction: column;
   border: 1px solid rgb(231, 230, 230);
   height: auto;
+  background-color: #ddd;
 }
 
 .lec-profile-header {

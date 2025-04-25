@@ -4,7 +4,7 @@
   align-items: center;
   min-height: 100vh; /* Full screen height */
   background-color: #f0f2f5; /* Optional: light background */
-  padding: 20px; /* Prevent form from touching screen edges on small screens */
+  padding: 20px; 
 }
 
 .divided{

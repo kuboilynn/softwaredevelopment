@@ -80,6 +80,7 @@ function LecDashboard() {
               { to: "/LecturerDashBoard/LecIssueCard", icon: FaFlag, text: "IssueCard" },
               { to: "/LecturerDashBoard/LecCommunication", icon: FaFileAlt, text: "Communication" },
               { to: "/LecturerDashBoard/LecProfile", icon: FaUser, text: "Profile" },
+              { to: "/login", icon: FaUser, text: "Logout" },
             ].map((item, index) => (
               <motion.li
                 key={item.text}

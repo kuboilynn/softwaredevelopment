@@ -2,9 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Full screen height */
-  background-color: #f0f2f5; /* Optional: light background */
-  padding: 20px; /* Prevent form from touching screen edges on small screens */
+  min-height: 100vh; 
+  background-color: #f0f2f5; 
 }
 
 .divided{
@@ -105,5 +104,17 @@ select.Input-field {
   margin-bottom: 25px;
   font-size: 14px;
 }
+ 
+.sidebar-items{
+  display: flex;
+  text-decoration: none;
+  flex-direction: column;
+  color: #f8f6f8;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 10px;
+  width: 100%;
   
+}
+
 

@@ -74,7 +74,7 @@ const RegProfile = () => {
   return (
 
     <>
-      <div className="profile-container">
+      <div className="lec-profile-container">
 
         <div className="lec-profile-header">
           <h3>User Profile - {formData && formData.username}</h3>

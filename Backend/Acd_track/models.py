@@ -10,6 +10,7 @@ class Submission(models.Model):
     description = models.TextField()
     status = models.CharField(max_length=100,default="pending")
     submission_date = models.DateTimeField(auto_now_add=True)
+    
 
     def __str__(self):
         return f"{self.student}'s submission for {self.student.get_full_name()}"

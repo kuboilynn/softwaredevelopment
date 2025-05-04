@@ -35,6 +35,7 @@ def delete_user_profile_image(sender, instance, **kwargs):
             os.remove(instance.image.path)
 
 
+
 # ========== DELETE OLD IMAGE WHEN PRODUCT IMAGE IS UPDATED ==========
 @receiver(models.signals.pre_save, sender=UserProfile)
 def delete_old_image_on_update(sender, instance, **kwargs):

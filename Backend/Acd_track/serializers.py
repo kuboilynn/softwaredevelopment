@@ -19,4 +19,6 @@ class NotificationSerializer(serializers.ModelSerializer):
         model = Notification
         fields = '__all__'
         depth = 1
-        
+
+
+class UploadimageSerializer(

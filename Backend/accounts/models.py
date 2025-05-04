@@ -21,7 +21,6 @@ class UserProfile(models.Model):
     gender = models.TextField(max_length=10, choices=GENDER_TYPES, default="Male")
     id_number = models.CharField(max_length=15, blank=True, null=True)
     department = models.CharField(max_length=100, blank=True, null=True)
-    
     image = models.ImageField(upload_to="profile_pics/", blank=True, null=True, default="profile_pics/default.png")
     
     def __str__(self):

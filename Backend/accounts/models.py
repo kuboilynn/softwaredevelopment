@@ -46,8 +46,6 @@ def delete_old_image_on_update(sender, instance, **kwargs):
     except UserProfile.DoesNotExist:
         return 
         
-        
-
     # If image has changed and old image exists, delete old image
     if old_instance.image and old_instance.image != instance.image:
         if os.path.isfile(old_instance.image.path):

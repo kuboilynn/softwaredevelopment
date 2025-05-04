@@ -13,8 +13,7 @@ class SubmissionsSerializer(serializers.ModelSerializer):
         model =Submission
         fields = "__all__"
         depth = 1
-
-
+        
 class NotificationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Notification

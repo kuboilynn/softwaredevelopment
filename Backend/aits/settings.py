@@ -46,17 +46,10 @@ INSTALLED_APPS = [
     'accounts',
 ]
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-    "http://127.0.0.1:3000",
-)
-
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
-
-CORS_ALLOW_ALL_ORIGINS = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -121,9 +114,6 @@ WSGI_APPLICATION = 'aits.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-
-"""
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -133,16 +123,7 @@ DATABASES = {
         'HOST':'127.0.0.1',
         'PORT':'5432',
     }
-}"
-"""
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
 }
-
 
 
 # Password validation
@@ -175,11 +156,8 @@ USE_I18N = True
 
 USE_TZ = True
 
-#mark@2020??
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-
 
 STATIC_URL = 'static/'
 STATIC_ROOT = 'static'
@@ -194,7 +172,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEFAULT_FROM_EMAIL = "mmukisa64@gmail.com"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True

@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 import os
 from django.dispatch import receiver
-
+ 
 class UserProfile(models.Model):
     ROLE_CHOICES = [
         ('lecturer', 'Lecturer'),

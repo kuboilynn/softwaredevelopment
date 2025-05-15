@@ -10,6 +10,7 @@ class UserProfile(models.Model):
         ('registrar', 'Registrar'),
         ('student', 'Student'),
     ]
+ 
     GENDER_TYPES = (
         ("Male", "Male"),
         ("Female", "Female"),

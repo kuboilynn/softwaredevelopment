@@ -1,3 +1,4 @@
+
 from django.urls import path
 from rest_framework_simplejwt.views import TokenRefreshView
 from .views import register, login, user_profile, activate_account, request_password_reset, reset_password, logout_view, logout_all_view

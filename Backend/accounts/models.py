@@ -3,7 +3,6 @@ from django.db import models
 import os
 from django.dispatch import receiver
 
-
 class UserProfile(models.Model):
     ROLE_CHOICES = [
         ('lecturer', 'Lecturer'),

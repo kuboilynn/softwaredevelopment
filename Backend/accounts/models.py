@@ -14,6 +14,7 @@ class UserProfile(models.Model):
         ("Female", "Female"),
         ("Others", "Others"),
     )
+    
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='student')
     program = models.CharField(max_length=300, default='', blank=True, null=True)

@@ -6,16 +6,22 @@ import Img from "../UI/Img";
 import { motion } from "framer-motion";
 import 'font-awesome/css/font-awesome.min.css';  
 import './styles/RegLogin.css';
+import { useState } from "react";
 
 function RegisterandLogin() {
   const navigate = useNavigate();
+  const [error,setError] = useState(false);
+  
   
   function GotoLogin() {
+
     navigate("/Login");
+    setError((preverror)=>({...preverror, error: false}));
   }
 
   function GotoRegister() {
     navigate("/Register");
+    setError((preverror)=>({...preverror, error: false}));
   }
 
   return (

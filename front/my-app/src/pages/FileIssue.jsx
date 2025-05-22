@@ -138,7 +138,7 @@ function FileIssue() {
             name="lecturer"
             value={data.lecturer}
             onChange={handleChange}
-            placeholder="Enter Lecturer email"
+            placeholder="Enter Registrar email"
           />
           {errors.lecturer && <p style={{ color: "red", fontSize: 10 }}>{errors.lecturer}</p>}
         </div>

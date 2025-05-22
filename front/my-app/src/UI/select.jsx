@@ -5,7 +5,7 @@ display:flex;
 border-radius:5px;
 flex-shrink:1;
 width:280px;
-height:40px;
+height:50px;
 padding:5px 5px 5px 5px;
 
 

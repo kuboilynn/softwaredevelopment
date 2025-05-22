@@ -95,7 +95,7 @@ function RegistrarDashboard() {
             {[
               { to: "/RegistrarDashboard/RegHome", icon: FaHome, text: "RegHome" },
               { to: "/RegistrarDashboard/RegIssue", icon: FaFlag, text: "RegIssue" },
-              { to: "/RegistrarDashboard/RegFileIssue", icon: FaFileAlt, text: "RegFileIssue" },
+              { to: "/RegistrarDashboard/RegFileIssue", icon: FaFileAlt, text: "RegAssignIssue" },
               { to: "/RegistrarDashboard/RegProfile", icon: FaUser, text: "RegProfile" },
               { to:"/Login", icon: FaSignOutAlt, text: "Logout" },
             ].map((item, index) => (

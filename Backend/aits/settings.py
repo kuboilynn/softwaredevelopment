@@ -27,14 +27,12 @@ SECRET_KEY = 'django-insecure-7446ccdphapyd*++4$3pnj@=fvm^nc@vn)xi8r+t4p0au=vj2e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-<<<<<<< HEAD
+
 ALLOWED_HOSTS = ['aits-group-p-44b24f9697c6.herokuapp.com'
                   "https://softwaredevelopment-a21o-git-main-lynns-projects-bcc5ddb7.vercel.app"
                  ]
 
-=======
-ALLOWED_HOSTS = ["*"]
->>>>>>> cfa17b3156f6bfbecbb1cd7facece02ce01306ae
+
 
 
 # Application definition
@@ -54,7 +52,7 @@ INSTALLED_APPS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-<<<<<<< HEAD
+
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "https://softwaredevelopment-a21o-git-main-lynns-projects-bcc5ddb7.vercel.app",
@@ -65,11 +63,7 @@ CSRF_TRUSTED_ORIGINS =["https://softwaredevelopment-a21o-git-main-lynns-projects
 CORS_ALLOW_ALL_ORIGINS = True
 
 
-=======
-    "http://localhost:8080",
-    "http://127.0.0.1:9000",
-]
->>>>>>> cfa17b3156f6bfbecbb1cd7facece02ce01306ae
+
 
 MIDDLEWARE = [
   'corsheaders.middleware.CorsMiddleware',

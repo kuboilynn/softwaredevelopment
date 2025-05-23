@@ -24,9 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7446ccdphapyd*++4$3pnj@=fvm^nc@vn)xi8r+t4p0au=vj2e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['aits-group-p-44b24f9697c6.herokuapp.com']
+ALLOWED_HOSTS = ['aits-group-p-44b24f9697c6.herokuapp.com'
+                  "https://softwaredevelopment-a21o-git-main-lynns-projects-bcc5ddb7.vercel.app"
+                 ]
 
 
 
@@ -58,15 +60,14 @@ CORS_ALLOWED_ORIGINS = [
     "https://softwaredevelopment-a21o-git-main-lynns-projects-bcc5ddb7.vercel.app",
 ]
 
+CSRF_TRUSTED_ORIGINS =["https://softwaredevelopment-a21o-git-main-lynns-projects-bcc5ddb7.vercel.app"]
+
 CORS_ALLOW_ALL_ORIGINS = True
 
-CSRF_TRUSTED_ORIGINS = [
-  "http://localhost:3000",
-  "http://127.0.0.1:3000",
-    "https://softwaredevelopment-a21o-git-main-lynns-projects-bcc5ddb7.vercel.app"
-]
+
 
 MIDDLEWARE = [
+  'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -75,7 +76,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    
+    
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True

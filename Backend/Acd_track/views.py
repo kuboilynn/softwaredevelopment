@@ -11,7 +11,9 @@ from rest_framework.authtoken.models import Token
 from rest_framework.parsers import MultiPartParser, FormParser
 from django.core.mail import EmailMessage
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 # Create your views here.
 
 @api_view(['GET'])

@@ -55,9 +55,14 @@ CORS_ORIGIN_WHITELIST = (
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://aits-frontend.vercel.app",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://aits-frontend.vercel.app",  # replace with your actual frontend domain
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

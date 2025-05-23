@@ -55,13 +55,15 @@ CORS_ORIGIN_WHITELIST = (
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://aits-frontend.vercel.app",
+    "https://softwaredevelopment-a21o-git-main-lynns-projects-bcc5ddb7.vercel.app",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://aits-frontend.vercel.app",  # replace with your actual frontend domain
+  "http://localhost:3000",
+  "http://127.0.0.1:3000",
+    "https://softwaredevelopment-a21o-git-main-lynns-projects-bcc5ddb7.vercel.app"
 ]
 
 MIDDLEWARE = [

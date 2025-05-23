@@ -5,7 +5,7 @@ import { useOutletContext } from 'react-router-dom';
 import useApiRequest from "../utils/useApiRequest";
 import { domain } from "../utils/domain";
 import { getFromLocalStorage } from "../utils/EncryptDecrypt";
-
+import Input from "../UI/input";
 function RegFileIssue() {
   const { postRequest, loading } = useApiRequest()
   const { lecturerIssues, setLecturerIssues } = useOutletContext(); // Access and update context
@@ -23,7 +23,8 @@ function RegFileIssue() {
     const notificationNew = {
       user_id: loggedUser.user.id,
       title: issue.title,
-      message: issue.message
+      message: issue.message,
+      email:issue.email
     };
 
     const req = await postRequest(`${domain}/notifications`, notificationNew)
@@ -60,6 +61,17 @@ function RegFileIssue() {
             value={issue.message}
             onChange={(e) => setIssue({ ...issue, message: e.target.value })}
             placeholder="Notification body"
+            required
+          />
+        </div>
+
+          <div className="form-group">
+          <label>Email</label>
+          <Input
+            type="email"
+            value={issue.email}
+            onChange={(e) => setIssue({ ...issue, email: e.target.value })}
+            placeholder="Registrar email"
             required
           />
         </div>

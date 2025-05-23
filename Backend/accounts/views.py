@@ -65,7 +65,6 @@ def register(request):
     gender = request.data.get("gender")
     department = request.data.get("department")
 
-
     if not all([username, email, password, first_name, last_name, id_number, user_type, gender]):
         return Response({"error": "All fields are required"}, status=status.HTTP_400_BAD_REQUEST)
 

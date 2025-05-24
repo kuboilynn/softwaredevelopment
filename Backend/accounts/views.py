@@ -91,7 +91,7 @@ def register(request):
     uid = urlsafe_base64_encode(force_bytes(user.pk))
     token = account_activation_token.make_token(user)
 
-    activation_link = f"http://127.0.0.1:3000/activate/{uid}/{token}"
+    activation_link = f"https://127.0.0.1:3000/activate/{uid}/{token}"
 
     # Send activation email
     subject = "Activate Your Account"

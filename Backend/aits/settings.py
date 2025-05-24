@@ -29,7 +29,7 @@ DEBUG = False
 
 
 ALLOWED_HOSTS = ['aits-group-p-44b24f9697c6.herokuapp.com'
-                  "https://softwaredevelopment-a21o-git-main-lynns-projects-bcc5ddb7.vercel.app"
+                  "https://softwaredevelopment-a21o.vercel.app"
                  ]
 
 
@@ -55,10 +55,10 @@ CORS_ALLOWED_ORIGINS = [
 
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://softwaredevelopment-a21o-git-main-lynns-projects-bcc5ddb7.vercel.app",
+    "https://git.heroku.com/front-end-group-p.git"
 ]
 
-CSRF_TRUSTED_ORIGINS =["https://softwaredevelopment-a21o-git-main-lynns-projects-bcc5ddb7.vercel.app"]
+CSRF_TRUSTED_ORIGINS =["https://git.heroku.com/front-end-group-p.git"]
 
 CORS_ALLOW_ALL_ORIGINS = True
 

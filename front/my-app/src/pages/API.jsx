@@ -6,7 +6,7 @@ const API = () => {
 
   useEffect(() => {
     // Replace with your Django backend API endpoint
-    const apiUrl = "https://mukisamark.pythonanywhere.com/";
+    const apiUrl = "https://mukisamark.pythonanywhere.com/accounts/login/";
 
     const fetchData = async () => {
       try {

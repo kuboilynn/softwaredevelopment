@@ -38,11 +38,11 @@ function RegisterandLogin() {
 
       <div className="Buttons">
       <Button className="login" onClick={GotoLogin}>
-          <i className="fas fa-sign-in-alt"></i> Login
+         Login
         </Button>
 
         <Button className="Register" onClick={GotoRegister}>
-          <i className="fas fa-user-plus"></i>Register
+          Register
         </Button>
       </div>
     </div>

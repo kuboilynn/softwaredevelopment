@@ -49,7 +49,7 @@ function Login() {
       password,
     };
 
-    fetch(`${domain}/api/login`, {
+    fetch(`${domain}/accounts/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

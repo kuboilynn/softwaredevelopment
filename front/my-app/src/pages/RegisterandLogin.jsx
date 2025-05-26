@@ -37,11 +37,11 @@ function RegisterandLogin() {
       <Img src={makerere} alt="makerere logo" className="logo" />
 
       <div className="Buttons">
-      <Button className="login" onClick={GotoLogin}>
+      <Button className="login" style={{color:"white"}} onClick={GotoLogin}>
          Login
         </Button>
 
-        <Button className="Register" onClick={GotoRegister}>
+        <Button className="Register" style={{color:"white"}} onClick={GotoRegister}>
           Register
         </Button>
       </div>

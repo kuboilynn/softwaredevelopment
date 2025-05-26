@@ -55,10 +55,10 @@ CORS_ALLOWED_ORIGINS = [
 
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://git.heroku.com/front-end-group-p.git"
+    "https://softwaredevelopment-a21o.vercel.app/"
 ]
 
-CSRF_TRUSTED_ORIGINS =["https://git.heroku.com/front-end-group-p.git"]
+CSRF_TRUSTED_ORIGINS =["https://softwaredevelopment-a21o.vercel.app/"]
 
 CORS_ALLOW_ALL_ORIGINS = True
 
